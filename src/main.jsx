@@ -19,16 +19,37 @@ const theme = createTheme({
         },
     },
 });
+export const UserContext = React.createContext({});
+
+const values = {
+    img: localStorage.getItem('userImg') || '',
+    name: localStorage.getItem('name') || '',
+    job: localStorage.getItem('job') || '',
+    languages: JSON.parse(localStorage.getItem('languages')) || [],
+    skills: JSON.parse(localStorage.getItem('skills')) || [],
+    description: localStorage.getItem('description') || '',
+    achievements: JSON.parse(localStorage.getItem('achievements')) || [''],
+    contacts: JSON.parse(localStorage.getItem('contacts')) || [''],
+    education: JSON.parse(localStorage.getItem('education')) || [
+        { institution: '', title: '', start: '', end: '' },
+    ],
+    experience: JSON.parse(localStorage.getItem('experience')) || [
+        { company: '', job: '', start: '', end: '', description: '' },
+    ],
+};
+
 ReactDOM.render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
             <Navbar />
             <BrowserRouter>
-                <Routes>
-                    <Route path="*" element={<NotFound />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/fill-data" element={<InitialForm />} />
-                </Routes>
+                <UserContext.Provider value={values}>
+                    <Routes>
+                        <Route path="*" element={<NotFound />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/fill-data" element={<InitialForm />} />
+                    </Routes>
+                </UserContext.Provider>
             </BrowserRouter>
         </ThemeProvider>
     </React.StrictMode>,
