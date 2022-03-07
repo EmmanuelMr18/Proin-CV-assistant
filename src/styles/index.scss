@@ -1,0 +1,23 @@
+// @import 'tachyons/css/tachyons.min.css';
+@import 'tachyons-sass/tachyons';
+@import './initialForm.scss';
+
+$primary: #aec3b0;
+
+input[type='text'] {
+    box-sizing: content-box;
+}
+* {
+    font-family: 'Roboto';
+}
+body {
+    background: #fefefe;
+}
+
+.c-primary {
+    color: $primary;
+}
+
+.persona-first-row {
+    display: grid;
+}
