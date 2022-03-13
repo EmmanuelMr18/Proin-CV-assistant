@@ -1,17 +1,18 @@
 // @import 'tachyons/css/tachyons.min.css';
-@import 'tachyons-sass/tachyons';
-@import './initialForm.scss';
+@import "tachyons-sass/tachyons";
+@import "./initialForm.scss";
+@import "./preview.scss";
 
 $primary: #aec3b0;
 
-input[type='text'] {
+input[type="text"] {
     box-sizing: content-box;
 }
 * {
-    font-family: 'Roboto';
+    font-family: "Roboto";
 }
 body {
-    background: #fefefe;
+    background: rgb(243, 243, 243);
 }
 
 .c-primary {

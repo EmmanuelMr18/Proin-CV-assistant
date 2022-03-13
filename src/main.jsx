@@ -7,6 +7,7 @@ import { Home } from './components/Home';
 import { InitialForm } from './components/InitialForm';
 import { Navbar } from './components/Navbar';
 import { NotFound } from './components/NotFound';
+import { Preview } from './components/Preview';
 import './styles/index.scss';
 
 const theme = createTheme({
@@ -22,7 +23,7 @@ const theme = createTheme({
 export const UserContext = React.createContext({});
 
 const values = {
-    img: localStorage.getItem('userImg') || '',
+    userImg: localStorage.getItem('userImg') || '',
     name: localStorage.getItem('name') || '',
     job: localStorage.getItem('job') || '',
     languages: JSON.parse(localStorage.getItem('languages')) || [],
@@ -48,6 +49,14 @@ ReactDOM.render(
                         <Route path="*" element={<NotFound />} />
                         <Route path="/" element={<Home />} />
                         <Route path="/fill-data" element={<InitialForm />} />
+                        <Route
+                            path="preview/*"
+                            element={
+                                <div id='preview-container'>
+                                    <Preview />
+                                </div>
+                            }
+                        />
                     </Routes>
                 </UserContext.Provider>
             </BrowserRouter>
