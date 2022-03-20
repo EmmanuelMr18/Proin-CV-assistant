@@ -1,6 +1,7 @@
 #personal,
 #contact,
-#education, #experience {
+#education,
+#experience {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 1rem;
@@ -9,6 +10,7 @@
     }
     & #upload-photo {
         grid-column: 1/4;
+        grid-row: 2 span;
     }
     & #name,
     #job {
@@ -32,7 +34,8 @@
         // }
     }
 }
-.education, .experience {
+.education,
+.experience {
     &__item {
         grid-column: span 10;
         display: grid;

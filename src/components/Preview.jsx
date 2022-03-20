@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 import { BasicDesign } from './templates/BasicDesign';
+import { SquareDesign } from './templates/SquareDesign';
 
 export function Preview(props) {
     const location = useLocation();
@@ -24,6 +25,8 @@ export function Preview(props) {
     switch (design) {
         case 'basicDesign':
             return <BasicDesign />;
+        case 'SquareDisign':
+            return <SquareDesign />
         default:
             return (
                 <div className="mw9 pa3 center">

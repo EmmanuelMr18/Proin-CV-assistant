@@ -2,12 +2,12 @@ import { Divider } from '@mui/material';
 import { useContext } from 'react';
 import { UserContext } from '../../main';
 import moment from 'moment';
-import './BasicDesign.scss';
+import './SquareDesign.scss';
 
 function convertDate(date) {
     return moment(date).format('MMMM YYYY');
 }
-export function BasicDesign() {
+export function SquareDesign() {
     const user = useContext(UserContext);
     const {
         name,
@@ -23,46 +23,26 @@ export function BasicDesign() {
     } = user;
     return (
         <div id="preview-content">
-            <div className="doc">
-                <h1 className="doc__name">{name}</h1>
-                <b className="doc__job">{job}</b>
-                <p className="doc__description">{description}</p>
+            <div className="squareDesign">
+                <h1 className="squareDesign__name">{name}</h1>
+                <b className="squareDesign__job">{job}</b>
+                <p className="squareDesign__description">{description}</p>
                 {userImg && (
-                    <div className="doc__img">
+                    <div className="squareDesign__img">
                         <img
-                            className="doc__img__picture"
+                            className="squareDesign__img__picture"
                             src={userImg}
                             alt={`${name}-picture`}
                         />
                     </div>
                 )}
-                <Divider className="doc__divider" />
-                <div className="doc__experiences">
-                    <h3 className="doc__experiences__title">Experiencia</h3>
-                    {experience.map((item) => {
-                        return (
-                            <div className="experience">
-                                <h4 className="experience__job">
-                                    {item.company}
-                                </h4>
-                                <p className="experience__brief">
-                                    {`${item.job} | 
-                                ${convertDate(item.start)} -
-                                ${convertDate(item.end)}`}
-                                </p>
-                                <p className="experience__description">
-                                    {item.description}
-                                </p>
-                            </div>
-                        );
-                    })}
-                </div>
+                <Divider className="squareDesign__divider" />
                 <div className="right-panel">
                     <div className="right-panel__contacts">
                         <h3 className="right-panel__contacts__title">
                             Contacto
                         </h3>
-                        <ul className="list pl0 mv0">
+                        <ul className="list pl0 mv0 truncate">
                             {contacts.map((item) => {
                                 return (
                                     <li className="right-panel__contact">
@@ -137,6 +117,28 @@ export function BasicDesign() {
                             })}
                         </ul>
                     </div>
+                </div>
+                <div className="squareDesign__experiences">
+                    <h3 className="squareDesign__experiences__title">
+                        Experiencia
+                    </h3>
+                    {experience.map((item) => {
+                        return (
+                            <div className="experience">
+                                <h4 className="experience__job">
+                                    {item.company}
+                                </h4>
+                                <p className="experience__brief">
+                                    {`${item.job} | 
+                                ${convertDate(item.start)} -
+                                ${convertDate(item.end)}`}
+                                </p>
+                                <p className="experience__description">
+                                    {item.description}
+                                </p>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

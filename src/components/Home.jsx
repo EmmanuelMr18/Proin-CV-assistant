@@ -10,7 +10,7 @@ export function Home() {
     const navigate = useNavigate();
     return (
         <Fragment>
-            <div className="mw8 mt4 center">
+            <div className="mw8 mt4 pa3 center">
                 <p>{`Bienvenido ${user.name}`}</p>
                 <Button
                     variant="contained"
@@ -20,9 +20,12 @@ export function Home() {
                     Editar mis datos
                 </Button>
             </div>
-            <div className="mw9 pa3 center">
+            <div className="mw8 pv4 pa3 center">
                 <a href="/preview?design=basicDesign">
                     <article>Diseño básico</article>
+                </a>
+                <a href="/preview?design=SquareDisign">
+                    <article>Diseño cuadrado</article>
                 </a>
             </div>
         </Fragment>

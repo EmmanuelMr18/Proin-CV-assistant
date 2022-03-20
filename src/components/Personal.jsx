@@ -74,6 +74,16 @@ export function Personal({ setStep }) {
                 <div className="mt4" id="personal">
                     <h2 className="">Información general</h2>
                     <label id="upload-photo" htmlFor="contained-button-file">
+                        {userImg && (
+                            <div className="w4 h4 overflow-hidden">
+                                <img
+                                    className="w-100 h-100"
+                                    src={userImg}
+                                    alt="name"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                        )}
                         <Input
                             accept="image/*"
                             id="contained-button-file"
@@ -116,8 +126,6 @@ export function Personal({ setStep }) {
                         </InputLabel>
                         <div className="flex flex-wrap w-100">
                             <TextField
-                                // label="¿Qué idiomas hablas?"
-                                // inputRef={languagesInput}
                                 value={languagesInput}
                                 variant="standard"
                                 placeholder="English..."
