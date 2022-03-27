@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../main';
 import basicDesign from '../assets/templates/basicDesign.png';
 import squareDesign from '../assets/templates/squareDesign.png';
-import { InitialForm } from './InitialForm';
-import { Navbar } from './Navbar';
 
 export function Home() {
     const user = useContext(UserContext);
@@ -28,7 +26,7 @@ export function Home() {
                         <span className="db fw6 ">{`Bienvenido ${user.name}`}</span>
                         <p className='mb0'>
                             <span className="fw6">Descripción: </span>
-                            {user.description}
+                            {description}
                         </p>
                     </div>
                 </div>
@@ -47,11 +45,9 @@ export function Home() {
                 <section className="designs">
                     <a className='designs__item dim' href="/preview?design=basicDesign">
                         <img className='designs__item__img' src={basicDesign} alt="BasicDesign" />
-                        {/* <article>Diseño básico</article> */}
                     </a>
                     <a className='designs__item dim' href="/preview?design=SquareDisign">
                         <img className='designs__item__img' src={squareDesign} alt="BasicDesign" />
-                        {/* <article>Diseño básico</article> */}
                     </a>
                 </section>
             </div>
