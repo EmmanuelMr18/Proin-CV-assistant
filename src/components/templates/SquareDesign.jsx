@@ -42,10 +42,13 @@ export function SquareDesign() {
                         <h3 className="right-panel__contacts__title">
                             Contacto
                         </h3>
-                        <ul className="list pl0 mv0 truncate">
+                        <ul className="list pl0 mv0">
                             {contacts.map((item) => {
                                 return (
-                                    <li className="right-panel__contact">
+                                    <li
+                                        className="right-panel__contact"
+                                        style={{ wordBreak: 'break-all' }}
+                                    >
                                         {item}
                                     </li>
                                 );
