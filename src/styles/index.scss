@@ -22,3 +22,23 @@ body {
 .persona-first-row {
     display: grid;
 }
+
+.user {
+    &__img {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.designs{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    &__item {
+        &__img{
+            width: 100%;
+        }
+    }
+}
