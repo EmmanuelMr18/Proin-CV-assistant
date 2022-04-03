@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@emotion/react';
-import { createTheme } from '@mui/material';
+import { Button, createTheme } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -52,9 +52,22 @@ ReactDOM.render(
                         <Route
                             path="preview/*"
                             element={
-                                <div id='preview-container'>
-                                    <Preview />
-                                </div>
+                                <>
+                                    <div className='mw7 center'>
+                                        <Button
+                                            id="download-print-btn"
+                                            variant="contained"
+                                            onClick={() => {
+                                                window.print();
+                                            }}
+                                        >
+                                            Descargar/Imprimir
+                                        </Button>
+                                    </div>
+                                    <div id="preview-container">
+                                        <Preview />
+                                    </div>
+                                </>
                             }
                         />
                     </Routes>
