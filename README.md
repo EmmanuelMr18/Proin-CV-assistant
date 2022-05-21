@@ -1,35 +1,37 @@
-# Proin-CV-assistant
-With proin you have a free and open source solution to create your curriculum and switch between multiple designs.
 
-Fill your data once and swtich between designs as you want.
+# Proin-CV-assistant
+With Proin-CV-assistant you have a free and open source solution to create your curriculum and switch between multiple designs.
+
+Fill your data once and switch between designs as you want.
 
 ``` 
-This is software is currently in alpha, needs a lot of work. 
+This is software is currently in alpha
 ```
 ### Which technologies do we use?
 
 1. Vitejs
 2. React
-3. Typescript (comming)
+3. Typescript (on coming)
 4. SASS
 5. Material UI
 
 ## How to install it?
-1. Clone the project
-2. Run     ``` pnpm i ```
-3. Run ``` pnpm run dev ```
+1. Clone the project ```git clone git@github.com:EmmanuelMr18/Proin-CV-assistant.git```
+2. Install deps     ``` pnpm i ```
+3. Run your dev environment ``` pnpm run dev ```
 
-Currently I'm using pnpm to install dependencies. You can use npm too but please don't submit the changes made in package.json.
-
-If you need to install a new dependency, please use pnpm.
+We are using [pnpm](https://pnpm.io/) as package manager. You can use npm, but please don't submit the changes made in package.json
+If you need to install a new dependency, you must use pnpm.
 
 ## Contributing
 Please send your commits using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format
 ### How to create new templates?
-it's pretty easy, here you have a little guide of how to do it:
-1. Create a component (your template name) in ```src>components>templates```.
+It's pretty easy, here you have a little guide of how to do it:
 
-    1.1 Use ```UserContext``` to access to all the data stored
+**You must use *YOUR_TEMPLATE_NAME*  to name your component, styles, and template screenshot**
+1. Create a component in ```src>components>templates>YOUR_TEMPLATE_NAME.jsx```.
+     
+    1.1 Use ```UserContext``` to access to all the user's data stored
     ```
      {
           name,
@@ -44,23 +46,18 @@ it's pretty easy, here you have a little guide of how to do it:
           achievements,
       } = useContext(UserContext);
     ```
-3. Crete your template styles in ```src>components>templates```. **Use the same name as your component**
-
-    3.1 Load this styles in your template component inline
+2. Create your template styles in ```src>components>templates>YOUR_TEMPLATE_NAME.scss```. 
+	
+	*We recommend you to develop your templates using CSS grid and BEM methodology*
+4. Load styles in your component. **Load inline your styles**
     ```
     import styles from './SquareDesign.scss?inline'; 
     <style>{styles}</style>
     ```
-5. Take a screenshot of your design and save it in ```src>assets>templates```. **Use the same name as your component**
-6. Add this component in Home.jsx
-```
-<a className='designs__item dim' href="/preview?design=YOUR_TEMPLATE_NAME">
-  <img className='designs__item__img' src={YOUR_TEMPLATE_IMG} alt="YOUR_TEMPLATE_NAME" />
-</a>
-```
-5. Add your component name in Preview.jsx
-```
- case 'YOUR_TEMPLATE_NAME':
-            return <YOUR_TEMPLATE_NAME />;
-```
-**We recomend you to develop you templates ussing CSS grid and BEM metodology**
+5. Take a screenshot of your design and save it in ```public>assets>templates>YOUR_TEMPLATE_NAME.png```.
+    
+    **Your image must be .png**
+7. Add *YOUR_TEMPLATE_NAME* to the template list in `src>data>templates`
+	```
+	export  const  templateList  = ['BasicDesign',  'SquareDesign', ... , YOUR_TEMPLATE_NAME];
+	```
