@@ -1,9 +1,15 @@
 import moment from 'moment';
+import { lazy, useEffect } from 'react';
+import { useState } from 'react';
+import { Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
-import { BasicDesign } from './templates/BasicDesign';
-import { SquareDesign } from './templates/SquareDesign';
 
-export function Preview(props) {
+const importTemplate = (templateName) =>
+    lazy(() =>
+        import(`./templates/${templateName}`).catch(() => import(`./NotFound`))
+    );
+export function Preview() {
+    const [component, setComponent] = useState([]);
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const design = params.get('design');
@@ -21,17 +27,14 @@ export function Preview(props) {
         weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
         weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_'),
     });
-    // moment.locale('es');
-    switch (design) {
-        case 'basicDesign':
-            return <BasicDesign />;
-        case 'SquareDisign':
-            return <SquareDesign />
-        default:
-            return (
-                <div className="mw9 pa3 center">
-                    Parece que este diseño no existe
-                </div>
-            );
-    }
+
+    useEffect(() => {
+        async function loadTemplate() {
+            const Template = await importTemplate(design);
+            setComponent(<Template />);
+        }
+        loadTemplate();
+    }, [design]);
+
+    return <Suspense fallback="">{component}</Suspense>;
 }

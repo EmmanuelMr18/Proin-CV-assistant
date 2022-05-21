@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { InitialForm } from './components/InitialForm';
 import { Navbar } from './components/Navbar';
-import { NotFound } from './components/NotFound';
+import NotFound from './components/NotFound';
 import { Preview } from './components/Preview';
 import './styles/index.scss';
 
@@ -53,7 +53,7 @@ ReactDOM.render(
                             path="preview/*"
                             element={
                                 <>
-                                    <div className='mw7 center'>
+                                    <div className="mw7 center">
                                         <Button
                                             id="download-print-btn"
                                             variant="contained"

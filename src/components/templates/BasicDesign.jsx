@@ -7,7 +7,7 @@ import styles from './BasicDesign.scss?inline';
 function convertDate(date) {
     return moment(date).format('MMMM YYYY');
 }
-export function BasicDesign() {
+export default function BasicDesign() {
     const user = useContext(UserContext);
     const {
         name,

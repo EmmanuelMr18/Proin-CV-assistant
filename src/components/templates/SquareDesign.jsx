@@ -7,7 +7,7 @@ import styles from './SquareDesign.scss?inline';
 function convertDate(date) {
     return moment(date).format('MMMM YYYY');
 }
-export function SquareDesign() {
+export default function SquareDesign() {
     const user = useContext(UserContext);
     const {
         name,
