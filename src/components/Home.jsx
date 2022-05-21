@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
 import { Fragment, useContext, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { templateList } from '../data/templates';
 import { UserContext } from '../main';
 
 export function Home() {
@@ -22,7 +23,7 @@ export function Home() {
                     )}
                     <div className="pl4 flex flex-column justify-center w-80">
                         <span className="db fw6 ">{`Bienvenido ${user.name}`}</span>
-                        <p className='mb0'>
+                        <p className="mb0">
                             <span className="fw6">Descripción: </span>
                             {description}
                         </p>
@@ -41,12 +42,22 @@ export function Home() {
             <div className="mw9 pv4 pa3 center">
                 <h4 className="fw5 ">Diseños disponibles</h4>
                 <section className="designs">
-                    <a className='designs__item dim' onClick={() => navigate('/preview?design=basicDesign')}>
-                        <img className='designs__item__img' src="/assets/templates/basicDesign.png" alt="basicDesign" />
-                    </a>
-                    <a className='designs__item dim' onClick={() => navigate('/preview?design=SquareDisign')}>
-                        <img className='designs__item__img' src="/assets/templates/squareDesign.png" alt="squareDesign" />
-                    </a>
+                    {templateList.map((templateName) => {
+                        return (
+                            <article>
+                                <a
+                                    className="designs__item dim"
+                                    href={`/preview?design=${templateName}`}
+                                >
+                                    <img
+                                        className="designs__item__img"
+                                        src={`/assets/templates/${templateName}.png`}
+                                        alt={templateName}
+                                    />
+                                </a>
+                            </article>
+                        );
+                    })}
                 </section>
             </div>
         </Fragment>
