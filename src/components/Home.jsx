@@ -44,7 +44,7 @@ export function Home() {
                 <section className="designs">
                     {templateList.map((templateName) => {
                         return (
-                            <article>
+                            <article key={templateName}>
                                 <a
                                     className="designs__item dim"
                                     href={`/preview?design=${templateName}`}
