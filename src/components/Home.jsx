@@ -2,8 +2,6 @@ import { Button } from '@mui/material';
 import { Fragment, useContext, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../main';
-import basicDesign from '../assets/templates/basicDesign.png';
-import squareDesign from '../assets/templates/squareDesign.png';
 
 export function Home() {
     const user = useContext(UserContext);
@@ -44,10 +42,10 @@ export function Home() {
                 <h4 className="fw5 ">Diseños disponibles</h4>
                 <section className="designs">
                     <a className='designs__item dim' onClick={() => navigate('/preview?design=basicDesign')}>
-                        <img className='designs__item__img' src={basicDesign} alt="BasicDesign" />
+                        <img className='designs__item__img' src="/assets/templates/basicDesign.png" alt="basicDesign" />
                     </a>
                     <a className='designs__item dim' onClick={() => navigate('/preview?design=SquareDisign')}>
-                        <img className='designs__item__img' src={squareDesign} alt="BasicDesign" />
+                        <img className='designs__item__img' src="/assets/templates/squareDesign.png" alt="squareDesign" />
                     </a>
                 </section>
             </div>
