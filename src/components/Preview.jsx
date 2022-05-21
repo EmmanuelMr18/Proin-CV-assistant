@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 const importTemplate = (templateName) =>
     lazy(() =>
-        import(`./templates/${templateName}`).catch(() => import(`./NotFound`))
+        import(`./templates/${templateName}.jsx`).catch(() => import(`./NotFound`))
     );
 export function Preview() {
     const [component, setComponent] = useState([]);
