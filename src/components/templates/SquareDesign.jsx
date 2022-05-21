@@ -49,6 +49,7 @@ export default function SquareDesign() {
                                     return (
                                         <li
                                             className="right-panel__contact"
+                                            key={item}
                                             style={{ wordBreak: 'break-all' }}
                                         >
                                             {item}
@@ -64,7 +65,10 @@ export default function SquareDesign() {
                             <ul className="list pl0 mv0">
                                 {skills.map((item) => {
                                     return (
-                                        <li className="right-panel__skill">
+                                        <li
+                                            className="right-panel__skill"
+                                            key={item}
+                                        >
                                             {item}
                                         </li>
                                     );
@@ -78,7 +82,10 @@ export default function SquareDesign() {
                             <ul className="list pl0 mv0">
                                 {languages.map((item) => {
                                     return (
-                                        <li className="right-panel__skill">
+                                        <li
+                                            className="right-panel__skill"
+                                            key={item}
+                                        >
                                             {item}
                                         </li>
                                     );
@@ -92,7 +99,10 @@ export default function SquareDesign() {
                             <ul className="list pl0 mv0">
                                 {education.map((item) => {
                                     return (
-                                        <div className="right-panel__education__item">
+                                        <div
+                                            className="right-panel__education__item"
+                                            key={item.title}
+                                        >
                                             <h4 className="right-panel__education__item__company">
                                                 {item.institution}
                                             </h4>
@@ -115,7 +125,10 @@ export default function SquareDesign() {
                             <ul className="list pl0 mv0">
                                 {achievements.map((item) => {
                                     return (
-                                        <li className="right-panel__achievement">
+                                        <li
+                                            className="right-panel__achievement"
+                                            key={item}
+                                        >
                                             {item}
                                         </li>
                                     );
@@ -129,7 +142,10 @@ export default function SquareDesign() {
                         </h3>
                         {experience.map((item) => {
                             return (
-                                <div className="experience">
+                                <div
+                                    className="experience"
+                                    key={item.company + item.job}
+                                >
                                     <h4 className="experience__job">
                                         {item.company}
                                     </h4>
