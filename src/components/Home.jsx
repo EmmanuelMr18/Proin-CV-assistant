@@ -43,10 +43,10 @@ export function Home() {
             <div className="mw9 pv4 pa3 center">
                 <h4 className="fw5 ">Diseños disponibles</h4>
                 <section className="designs">
-                    <a className='designs__item dim' href="/preview?design=basicDesign">
+                    <a className='designs__item dim' onClick={() => navigate('/preview?design=basicDesign')}>
                         <img className='designs__item__img' src={basicDesign} alt="BasicDesign" />
                     </a>
-                    <a className='designs__item dim' href="/preview?design=SquareDisign">
+                    <a className='designs__item dim' onClick={() => navigate('/preview?design=SquareDisign')}>
                         <img className='designs__item__img' src={squareDesign} alt="BasicDesign" />
                     </a>
                 </section>
