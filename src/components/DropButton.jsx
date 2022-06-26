@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
+import { useNavigate } from 'react-router-dom';
 
 const options = ['Importar', 'Editar Datos', 'Exportar','Limpiar Datos'];
 
@@ -15,10 +16,23 @@ export default function SplitButton() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    console.info(`You clicked ${(`/fill-data`)}`);
-    
+    switch(options[selectedIndex]){
+      case 'Importar':
+        //Aqui va la funcion de importar
+        break;
+      case 'Editar Datos':        
+        navigate(`/fill-data`);
+        break;
+      case 'Exportar':
+        //Aqui va la funcion de exportar
+        break;
+      case 'Limpiar Datos':
+        //Aqui va la funcion de limpiar datos
+        break;
+    }
   };
 
   const handleMenuItemClick = (event, index) => {
@@ -44,7 +58,7 @@ export default function SplitButton() {
   return (
     <React.Fragment>
       <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-        <Button onClick={handleClick}>onClick={() => navigate(`/fill-data`)}</Button>
+        <Button onClick={handleClick}>{options[selectedIndex]}</Button>
         <Button
           size="small"
           aria-controls={open ? 'split-button-menu' : undefined}
