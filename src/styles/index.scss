@@ -3,7 +3,9 @@
 @import "./initialForm.scss";
 @import "./preview.scss";
 
-$primary: #aec3b0;
+// $primary: #aec3b0;
+$primary: #ED7155;
+$secondary: #ED7155;
 
 input[type="text"] {
     box-sizing: content-box;
@@ -15,8 +17,29 @@ body {
     background: rgb(243, 243, 243);
 }
 
+.b-color {
+    background-color: #E4F1F7;
+    padding: 1rem;
+}
+
+.p-footer{
+    font-size: .8rem;
+}
+
+.m-footer {
+    margin: .5rem;
+}
+
+.f-user {
+    font-size: 2rem;
+}
+
 .c-primary {
     color: $primary;
+}
+
+.c-secondary {
+    color: $secondary;
 }
 
 .persona-first-row {

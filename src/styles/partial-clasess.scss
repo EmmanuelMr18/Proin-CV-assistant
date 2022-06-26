@@ -17,6 +17,10 @@ $spacing-extra-extra-extra-large: 16rem;
     justify-content: space-between;
 }
 
+.justify-around{
+    justify-content: space-around;
+}
+
 .pa0 {
     padding: var(--spacing-none);
 }
