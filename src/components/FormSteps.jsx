@@ -21,15 +21,15 @@ export function FormSteps({ step }) {
             id="form-steps"
         >
             <div className="w-100 flex justify-between mb2">
-                <span className={classNames({ 'c-primary': step === 0 })}>
+                <span className={classNames({ 'c-secondary': step === 0 })}>
                     Personal
                 </span>
                 <span
-                    className={classNames('mh3', { 'c-primary': step === 1 })}
+                    className={classNames('mh3', { 'c-secondary': step === 1 })}
                 >
                     Educación
                 </span>
-                <span className={classNames({ 'c-primary': step === 2 })}>
+                <span className={classNames({ 'c-secondary': step === 2 })}>
                     Experiencia
                 </span>
             </div>

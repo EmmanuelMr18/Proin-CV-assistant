@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { InitialForm } from './components/InitialForm';
 import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 import NotFound from './components/NotFound';
 import { Preview } from './components/Preview';
 import './styles/index.scss';
@@ -13,7 +14,7 @@ import './styles/index.scss';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#AEC3B0',
+            main: '#ED7155',
         },
         secondary: {
             main: '#01161E',
@@ -73,6 +74,7 @@ ReactDOM.render(
                     </Routes>
                 </UserContext.Provider>
             </BrowserRouter>
+            <Footer />
         </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')

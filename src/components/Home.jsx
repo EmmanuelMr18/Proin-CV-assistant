@@ -22,7 +22,7 @@ export function Home() {
                         </div>
                     )}
                     <div className="pl4 flex flex-column justify-center w-80">
-                        <span className="db fw6 ">{`Bienvenido ${user.name}`}</span>
+                        <span className="db fw6 f-user">{`Bienvenido ${user.name}`}</span>
                         <p className="mb0">
                             <span className="fw6">Descripción: </span>
                             {description}
