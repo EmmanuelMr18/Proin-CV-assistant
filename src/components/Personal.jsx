@@ -441,7 +441,7 @@ export function Personal({ setStep }) {
                         sx={{ marginLeft: '1rem' }}
                         variant="contained"
                         type="submit"
-                        color="primary"
+                        color="secondary"
                     >
                         Guardar y continuar
                     </Button>

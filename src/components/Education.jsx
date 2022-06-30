@@ -262,7 +262,7 @@ export function Education({ setStep }) {
                     <Button
                         variant="outlined"
                         onClick={() => setStep(0)}
-                        color="primary"
+                        color="secondary"
                     >
                         Cancelar y volver
                     </Button>
@@ -270,7 +270,7 @@ export function Education({ setStep }) {
                         type="submit"
                         sx={{ marginLeft: '1rem' }}
                         variant="contained"
-                        color="primary"
+                        color="secondary"
                     >
                         Guardar y continuar
                     </Button>

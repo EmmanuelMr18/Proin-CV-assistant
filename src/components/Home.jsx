@@ -6,7 +6,6 @@ import * as React from 'react';
 import DropButton from './DropButton';
 
 
-
 export function Home() {
     const user = useContext(UserContext);
     const { userImg, name, description } = user;
@@ -33,20 +32,8 @@ export function Home() {
                     </div>
                 </div>
                 <div className="w-20">
-                {/* <ButtonGroup variant="text" aria-label="text button group">
-                <Button> Limpiar Datos </Button>
-                <Button
-                        color="secondary"
-                        onClick={() => navigate(`/fill-data`)} //Funcion Modificar datos EMMA
-                    >
-                        Editar mis datos
-                    </Button>
-                <Button>Importar</Button>
-                <Button>Exportar</Button>
-                </ButtonGroup> */}
-                <DropButton/>
-
-                  
+                    <DropButton/>
+                                    
                 </div>
             </div>
             <div className="mw9 pv4 pa3 center">

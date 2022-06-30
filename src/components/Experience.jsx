@@ -311,7 +311,7 @@ export function Experience({ setStep }) {
                     <Button
                         variant="outlined"
                         onClick={() => setStep(1)}
-                        color="primary"
+                        color="secondary"
                     >
                         Cancelar y volver
                     </Button>
@@ -319,7 +319,7 @@ export function Experience({ setStep }) {
                         type="submit"
                         sx={{ marginLeft: '1rem' }}
                         variant="contained"
-                        color="primary"
+                        color="secondary"
                     >
                         Guardar y finalizar
                     </Button>
