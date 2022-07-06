@@ -29,7 +29,7 @@ const style = {
   p: 4,
 };
 
-const options = ['Importar', 'Editar Datos', 'Exportar','Limpiar Datos'];
+const options = ['Importar', 'Editar Datos', 'Exportar'];
 
 
 
@@ -74,9 +74,6 @@ export default function SplitButton() {
       case 'Exportar':
         //Aqui va la funcion de exportar
         handleOpen1();
-        break;
-      case 'Limpiar Datos':
-        //Aqui va la funcion de limpiar datos
         break;
     }
   };
@@ -155,9 +152,6 @@ export default function SplitButton() {
   };
 
   const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-  const handleLimpiar = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
