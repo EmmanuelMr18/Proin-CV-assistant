@@ -58,6 +58,7 @@ ReactDOM.render(
                                         <Button
                                             id="download-print-btn"
                                             variant="contained"
+                                            color="secondary"
                                             onClick={() => {
                                                 window.print();
                                             }}
