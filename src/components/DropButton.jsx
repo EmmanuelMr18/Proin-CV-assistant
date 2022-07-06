@@ -27,6 +27,7 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  color: "secondary" 
 };
 
 const options = ['Importar', 'Editar Datos', 'Exportar'];
@@ -88,30 +89,29 @@ export default function SplitButton() {
   function onReaderLoad(event){
     //alert(event.target.result);
     // var obj = JSON.parse(event.target.result);
-    // alert(obj);
     let obj = JSON.parse(event.target.result);
     // console.log(obj);
     // console.log(obj.experience[0].company);
 
     // localStorage.setItem('userImg', obj.userImg);
     localStorage.setItem('name', obj.name);
-    localStorage.setItem('job', JSON.stringify(obj.job));
+    localStorage.setItem('job', obj.job);
     // localStorage.setItem('languages', obj.languages);
     localStorage.setItem('languages', JSON.stringify(obj.languages));
     localStorage.setItem('skills', JSON.stringify(obj.skills));
     localStorage.setItem('description', obj.description);
     localStorage.setItem('achievements', JSON.stringify(obj.achievements));
     localStorage.setItem('contacts', JSON.stringify(obj.contacts));
-    // localStorage.setItem('education', JSON.stringify(obj.education[0].institution));
-    // localStorage.setItem('education', JSON.stringify(obj.education[0].title));
-    // localStorage.setItem('education', JSON.stringify(obj.education[0].start));
-    // localStorage.setItem('education', JSON.stringify(obj.education[0].end));
-    // localStorage.setItem('experience', JSON.stringify(obj.experience[0].company));
-    // localStorage.setItem('experience', JSON.stringify(obj.experience[0].job));
-    // localStorage.setItem('experience', JSON.stringify(obj.experience[0].start));
-    // localStorage.setItem('experience', JSON.stringify(obj.experience[0].start));
-    // localStorage.setItem('experience', JSON.stringify(obj.experience[0].description));
-
+    localStorage['education'] =  JSON.stringify([{
+      institution: obj.education[0].institution, title: obj.education[0].title,
+      start: obj.education[0].start, end: obj.education[0].end
+    }])
+    localStorage['experience'] =  JSON.stringify([{
+      company: obj.experience[0].company, job: obj.experience[0].job,
+      start: obj.experience[0].start, end: obj.experience[0].end,
+      description: obj.experience[0].description
+    }])
+    
   }
 
   //Exportar JSON
@@ -227,8 +227,9 @@ export default function SplitButton() {
             Exportar
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Guardar tus datos
+            Descargar archivo JSON con tus datos
           </Typography>
+          <br />
           <button onClick={exportData}>Guardar archivo</button>
         </Box>
       </Modal>

@@ -12,6 +12,7 @@ export function Footer(){
                 </Link>
                 </b>
                 <p className="p-footer">CONTACTO:</p>
+                <p>emman.mr@gmail.com</p>
             </div>
             <div>
                 <h3>MANTENIMIENTO REALIZADO POR:</h3>
@@ -24,7 +25,7 @@ export function Footer(){
                         </Link>
                         </b>
                         <p>CONTACTO:</p>
-                        <p>@micorreo.upp.edu.mx</p>
+                        <p>kimberly@micorreo.upp.edu.mx</p>
                     </div>
                     <div className="m-footer">
                         <p>JOSÉ ANTONIO SALAS PORTUGAL</p>
