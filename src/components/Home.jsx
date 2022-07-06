@@ -4,6 +4,8 @@ import { templateList } from '../data/templates';
 import { UserContext } from '../main';
 import * as React from 'react';
 import DropButton from './DropButton';
+import AlertDelete from './AlertDelete';
+import { ButtonGroup } from '@mui/material';
 
 
 export function Home() {
@@ -32,7 +34,10 @@ export function Home() {
                     </div>
                 </div>
                 <div className="w-20">
+                    <ButtonGroup>
+                    <AlertDelete/>
                     <DropButton/>
+                    </ButtonGroup>
                                     
                 </div>
             </div>
