@@ -14,7 +14,7 @@ export function Home() {
     const navigate = useNavigate();
     return (
         <Fragment>
-            <div className="mw9 mt4 pa3 center flex justify-between items-center">
+            <div className="mw9 mt4 pa3 center flex justify-between items-center btn-movil">
                 <div className="user flex flex-wrap w-80">
                     {userImg && (
                         <div className="user__img">
@@ -46,7 +46,7 @@ export function Home() {
                 <section className="designs">
                     {templateList.map((templateName) => {
                         return (
-                            <article key={templateName}>
+                            <article key={templateName} className="centerDesigns">
                                 <a
                                     className="designs__item dim"
                                     href={`/preview?design=${templateName}`}
