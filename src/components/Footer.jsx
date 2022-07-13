@@ -2,7 +2,7 @@ import { Link } from '@mui/material';
 
 export function Footer(){
     return(
-        <div className="flex justify-around b-color main-box">
+        <div className="flex justify-around b-color main-box" id='navbar'>
             <div className="p-footer">
                 <h3 className='title'>CREADOR DEL PROYECTO</h3>
                 <p className="p-footer">JOSÉ EMMANUEL MORALES RIOS</p>
