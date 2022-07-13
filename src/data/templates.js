@@ -1,1 +1,1 @@
-export const templateList = ['BasicDesign', 'SquareDesign'];
+export const templateList = ['BasicDesign', 'SquareDesign','JaredDesign'];
