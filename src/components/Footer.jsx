@@ -2,9 +2,9 @@ import { Link } from '@mui/material';
 
 export function Footer(){
     return(
-        <div className="flex justify-around b-color">
-            <div>
-                <h3>CREADOR DEL PROYECTO</h3>
+        <div className="flex justify-around b-color main-box" id='navbar'>
+            <div className="p-footer">
+                <h3 className='title'>CREADOR DEL PROYECTO</h3>
                 <p className="p-footer">JOSÉ EMMANUEL MORALES RIOS</p>
                 <b>
                 <Link href="https://github.com/EmmanuelMr18" underline="hover" color="#f48fb1" target="_blank">
@@ -12,10 +12,11 @@ export function Footer(){
                 </Link>
                 </b>
                 <p className="p-footer">CONTACTO:</p>
+                <p>emman.mr@gmail.com</p>
             </div>
             <div>
-                <h3>MANTENIMIENTO REALIZADO POR:</h3>
-                <div className="flex justify-around p-footer">
+                <h3 className='title'>MANTENIMIENTO REALIZADO POR:</h3>
+                <div className="flex justify-around p-footer main-box">
                     <div className="m-footer">
                         <p className="p-footer">KIMBERLY DAMARIS GUEVARA RIZO</p>      
                         <b>                
@@ -24,7 +25,7 @@ export function Footer(){
                         </Link>
                         </b>
                         <p>CONTACTO:</p>
-                        <p>@micorreo.upp.edu.mx</p>
+                        <p>kimberly@micorreo.upp.edu.mx</p>
                     </div>
                     <div className="m-footer">
                         <p>JOSÉ ANTONIO SALAS PORTUGAL</p>
