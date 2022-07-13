@@ -1,6 +1,7 @@
 $black: #242424;
 $gray: #70706f;
 $gray-light: #939598;
+$purple: #5653E2;
 
 $sub-title: 12pt;
 $sub-title2: 11pt;
@@ -16,37 +17,39 @@ $text: 10pt;
     & h3 {
         color: $gray;
         margin-bottom: 0.75rem;
+        background-color: $purple;
+        color: #E4F1F7;
     }
     &__name {
-        grid-column: 4/13;
+        grid-column: 1/13;
         margin: 0 0 1rem 0;
     }
     &__job {
-        grid-column: 4/13;
+        grid-column: 1/13;
         font-size: 11pt;
         font-weight: 500;
     }
     &__description {
-        grid-column: 4/13;
+        grid-column: 1/7;
         font-size: 10pt;
         color: $gray-light;
         margin: 1rem 0 1.5rem 0;
     }
-    &__img {
-        grid-column: 1/4;
-        grid-row: 1/4;
-        justify-self: center;
-        align-self: flex-start;
-        height: 4cm;
-        width: 4cm;
-        overflow: hidden;
-        &__picture {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
+    // &__img {
+    //     grid-column: 1/4;
+    //     grid-row: 1/4;
+    //     justify-self: center;
+    //     align-self: flex-start;
+    //     height: 4cm;
+    //     width: 4cm;
+    //     overflow: hidden;
+    //     &__picture {
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //         object-position: center;
+    //     }
+    // }
     &__divider {
         grid-column: 1/13;
     }
@@ -68,7 +71,7 @@ $text: 10pt;
                 margin: 0;
                 font-size: $text;
                 font-weight: 400;
-            }
+            }            
         }
         // grid-row: 4/last-line;
         // grid-row-start: span 9000;
@@ -76,12 +79,12 @@ $text: 10pt;
     & .right-panel {
         margin-left: 1rem;
         grid-column: 1/5;
-        &__contact {
-            font-size: $text;
-            font-weight: 400;
-        }
+        // &__contact {
+        //     font-size: $text;
+        //     font-weight: 400;
+        // }
         &__skills {
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
         &__skill {
             font-size: $text;
@@ -114,4 +117,9 @@ $text: 10pt;
             }
         }
     }
+}
+
+.right-panel__contacts {
+    grid-column: 7/13;
+    
 }

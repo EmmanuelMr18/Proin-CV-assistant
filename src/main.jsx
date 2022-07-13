@@ -60,6 +60,7 @@ ReactDOM.render(
                                             variant="contained"
                                             color="secondary"
                                             onClick={() => {
+                                                document.title= `${values.name}`;
                                                 window.print();
                                             }}
                                         >

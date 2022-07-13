@@ -2,7 +2,7 @@ import { Divider } from '@mui/material';
 import { useContext } from 'react';
 import { UserContext } from '../../main';
 import moment from 'moment';
-import styles from './SquareDesign.scss?inline';
+import styles from './JaredDesign.scss?inline';
 
 function convertDate(date) {
     return moment(date).format('MMMM YYYY');
@@ -29,7 +29,24 @@ export default function SquareDesign() {
                     <h1 className="squareDesign__name">{name}</h1>
                     <b className="squareDesign__job">{job}</b>
                     <p className="squareDesign__description">{description}</p>
-                    {userImg && (
+                    <div className="right-panel__contacts">
+                            <h3 className="right-panel__contacts__title">
+                                Contacto
+                            </h3>
+                            <ul className="list pl0 mv0">
+                                {contacts.map((item) => {
+                                    return (
+                                        <li
+                                            className="right-panel__contact"
+                                            key={item}
+                                        >
+                                            {item}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    {/* {userImg && (
                         <div className="squareDesign__img">
                             <img
                                 className="squareDesign__img__picture"
@@ -37,10 +54,10 @@ export default function SquareDesign() {
                                 alt={`${name}-picture`}
                             />
                         </div>
-                    )}
+                    )} */}
                     <Divider className="squareDesign__divider" />
                     <div className="right-panel">
-                        <div className="right-panel__contacts">
+                        {/* <div className="right-panel__contacts">
                             <h3 className="right-panel__contacts__title">
                                 Contacto
                             </h3>
@@ -57,7 +74,7 @@ export default function SquareDesign() {
                                     );
                                 })}
                             </ul>
-                        </div>
+                        </div> */}
                         <div className="right-panel__skills">
                             <h3 className="right-panel__skills__title">
                                 Habilidades
