@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const importTemplate = (templateName) =>
-  lazy(() => import(`./templates/${templateName}.jsx`).catch(() => import(`./NotFound`)));
+  lazy(() => import(`./templates/${templateName}.jsx`).catch(() => import(`./shared/NotFound`)));
 export function Preview() {
   const [component, setComponent] = useState([]);
   const location = useLocation();

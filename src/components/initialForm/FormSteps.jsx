@@ -1,6 +1,5 @@
 // import { ClassNames } from '@emotion/react';
 import { LinearProgress } from '@mui/material';
-import classNames from 'classnames';
 import { useMemo } from 'react';
 
 export function FormSteps({ step }) {
@@ -17,9 +16,9 @@ export function FormSteps({ step }) {
   return (
     <div className="flex justify-center flex-column mw6 center" id="form-steps">
       <div className="w-100 flex justify-between mb2">
-        <span className={classNames({ 'c-primary': step === 0 })}>Personal</span>
-        <span className={classNames('mh3', { 'c-primary': step === 1 })}>Educación</span>
-        <span className={classNames({ 'c-primary': step === 2 })}>Experiencia</span>
+        <span>Personal</span>
+        <span>Educación</span>
+        <span>Experiencia</span>
       </div>
       <div className="w-100">
         <LinearProgress

@@ -3,12 +3,13 @@ import { Button, createTheme } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from './components/Home';
-import { InitialForm } from './components/InitialForm';
-import { Navbar } from './components/Navbar';
-import NotFound from './components/NotFound';
+
+import { Navbar } from './components/shared/Navbar';
+import NotFound from './components/shared/NotFound';
 import { Preview } from './components/Preview';
 import './styles/index.scss';
+import { Home } from './components/home/Home';
+import { InitialForm } from './components/initialForm/InitialForm';
 
 const theme = createTheme({
   palette: {

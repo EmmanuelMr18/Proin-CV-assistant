@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Education } from './Education';
 import { Experience } from './Experience';
 import { FormSteps } from './FormSteps';
 import { Personal } from './Personal';
-
+import { Education } from './Education';
 export function InitialForm() {
   const [params] = useSearchParams();
   const [step, setStep] = useState(Number(params.get('step')));

@@ -2,25 +2,17 @@ import { Alert, Button, Divider, Snackbar, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
-import { UserContext } from '../main';
-import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../main';
 
-const emptyExperience = {
-  company: '',
-  job: '',
-  start: '',
-  end: '',
-  description: ''
-};
-export function Experience({ setStep }) {
+const emptyEducation = { education: '', title: '', start: '', end: '' };
+export function Education({ setStep }) {
   const user = useContext(UserContext);
-  const navigate = useNavigate();
-  const [experience, setExperience] = useState(user.experience);
+  const [education, setEducation] = useState(user.education);
   const [alert, setAlert] = useState(false);
   function onSubmit(e) {
     e.preventDefault();
-    localStorage.setItem('experience', JSON.stringify(experience));
-    navigate(`/`);
+    localStorage.setItem('education', JSON.stringify(education));
+    setStep(2);
   }
   return (
     <Fragment>
@@ -34,22 +26,22 @@ export function Experience({ setStep }) {
         </Alert>
       </Snackbar>
       <form onSubmit={onSubmit} className="mb5">
-        <div className="mt4 experience" id="experience">
-          <h2>Experiencia laboral</h2>
-          <div className="experience__item">
+        <div className="mt4 education" id="education">
+          <h2>Educación</h2>
+          <div className="education__item">
             <div className="half-width">
               <TextField
-                value={experience[0]?.company}
-                label="Compañia:"
+                value={education[0]?.institution}
+                label="Nombre de la institución:"
                 variant="outlined"
-                placeholder="Microsoft, Rappi, ..."
+                placeholder="UPP, CISCO, ..."
                 margin="normal"
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
+                  setEducation((prev) => {
                     const listUpdated = [...prev];
-                    listUpdated[0].company = event.target.value;
+                    listUpdated[0].institution = event.target.value;
                     return listUpdated;
                   });
                 }}
@@ -57,17 +49,17 @@ export function Experience({ setStep }) {
             </div>
             <div className="half-width">
               <TextField
-                value={experience[0]?.job}
-                label="Puesto de trabajo"
+                value={education[0]?.title}
+                label="Nombre de la carrera o certificado"
                 variant="outlined"
-                placeholder="Data scientist, Software architect, ..."
+                placeholder="Ing. Software, Cloud computing, ..."
                 margin="normal"
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
+                  setEducation((prev) => {
                     const listUpdated = [...prev];
-                    listUpdated[0].job = event.target.value;
+                    listUpdated[0].title = event.target.value;
                     return listUpdated;
                   });
                 }}
@@ -75,7 +67,7 @@ export function Experience({ setStep }) {
             </div>
             <div className="half-width">
               <TextField
-                value={experience[0]?.start}
+                value={education[0]?.start}
                 type="date"
                 label="Fecha de inicio"
                 InputLabelProps={{ shrink: true }}
@@ -84,7 +76,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
+                  setEducation((prev) => {
                     const listUpdated = [...prev];
                     listUpdated[0].start = event.target.value;
                     return listUpdated;
@@ -94,7 +86,7 @@ export function Experience({ setStep }) {
             </div>
             <div className="half-width">
               <TextField
-                value={experience[0]?.end}
+                value={education[0]?.end}
                 type="date"
                 label="Fecha de finalización"
                 InputLabelProps={{ shrink: true }}
@@ -103,7 +95,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
+                  setEducation((prev) => {
                     const listUpdated = [...prev];
                     listUpdated[0].end = event.target.value;
                     return listUpdated;
@@ -111,54 +103,35 @@ export function Experience({ setStep }) {
                 }}
               />
             </div>
-            <div className="full-width">
-              <TextField
-                value={experience[0]?.description}
-                label="Descripción:"
-                variant="outlined"
-                placeholder="Software enginner"
-                margin="normal"
-                fullWidth
-                multiline
-                required
-                onChange={(event) =>
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].description = event.target.value;
-                    return listUpdated;
-                  })
-                }
-              />
-            </div>
           </div>
-          {experience.map((item, index) => {
+          {education.map((item, index) => {
             if (index === 0) {
               return;
             }
             return (
               <Fragment key={`fragment-${index}`}>
-                <Divider className="experience__divider" textAlign="right" key={`divider${index}`}>
+                <Divider className="education__divider" textAlign="right" key={`divider${index}`}>
                   <Button>
                     <ClearIcon
                       color="error"
-                      onClick={() => setExperience((prev) => prev.filter((item, n) => n !== index))}
+                      onClick={() => setEducation((prev) => prev.filter((item, n) => n !== index))}
                     />
                   </Button>
                 </Divider>
-                <div className="experience__item" key={`experience-item${index}`}>
+                <div className="education__item" key={`education-item${index}`}>
                   <div className="half-width">
                     <TextField
-                      value={experience[index]?.company}
-                      label="Compañia:"
+                      value={education[index]?.institution}
+                      label="Nombre de la institución:"
                       variant="outlined"
-                      placeholder="Microsoft, Rappi, ..."
+                      placeholder="UPP, CISCO, ..."
                       margin="normal"
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
+                        setEducation((prev) => {
                           const listUpdated = [...prev];
-                          listUpdated[index].company = event.target.value;
+                          listUpdated[index].institution = event.target.value;
                           return listUpdated;
                         });
                       }}
@@ -166,17 +139,17 @@ export function Experience({ setStep }) {
                   </div>
                   <div className="half-width">
                     <TextField
-                      value={experience[index]?.job}
-                      label="Puesto de trabajo"
+                      value={education[index]?.title}
+                      label="Nombre de la carrera o certificado"
                       variant="outlined"
-                      placeholder="Data scientist, Software architect, ..."
+                      placeholder="Ing. Software, Cloud computing, ..."
                       margin="normal"
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
+                        setEducation((prev) => {
                           const listUpdated = [...prev];
-                          listUpdated[index].job = event.target.value;
+                          listUpdated[index].title = event.target.value;
                           return listUpdated;
                         });
                       }}
@@ -184,7 +157,7 @@ export function Experience({ setStep }) {
                   </div>
                   <div className="half-width">
                     <TextField
-                      value={experience[index]?.start}
+                      value={education[index]?.start}
                       type="date"
                       label="Fecha de inicio"
                       InputLabelProps={{ shrink: true }}
@@ -193,7 +166,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
+                        setEducation((prev) => {
                           const listUpdated = [...prev];
                           listUpdated[index].start = event.target.value;
                           return listUpdated;
@@ -203,7 +176,7 @@ export function Experience({ setStep }) {
                   </div>
                   <div className="half-width">
                     <TextField
-                      value={experience[index]?.end}
+                      value={education[index]?.end}
                       type="date"
                       label="Fecha de finalización"
                       InputLabelProps={{ shrink: true }}
@@ -212,7 +185,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
+                        setEducation((prev) => {
                           const listUpdated = [...prev];
                           listUpdated[index].end = event.target.value;
                           return listUpdated;
@@ -220,39 +193,20 @@ export function Experience({ setStep }) {
                       }}
                     />
                   </div>
-                  <div className="full-width">
-                    <TextField
-                      value={experience[index]?.description}
-                      label="Descripción:"
-                      variant="outlined"
-                      placeholder="Software enginner"
-                      margin="normal"
-                      fullWidth
-                      multiline
-                      required
-                      onChange={(event) =>
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].description = event.target.value;
-                          return listUpdated;
-                        })
-                      }
-                    />
-                  </div>
                 </div>
               </Fragment>
             );
           })}
           <Button
-            className="experience__add"
+            className="education__add"
             variant="outlined"
             startIcon={<AddIcon />}
             color="secondary"
             onClick={() =>
-              setExperience((prev) => [
+              setEducation((prev) => [
                 ...prev,
                 {
-                  ...emptyExperience
+                  ...emptyEducation
                 }
               ])
             }>
@@ -260,11 +214,11 @@ export function Experience({ setStep }) {
           </Button>
         </div>
         <div className="flex justify-end mt3">
-          <Button variant="outlined" onClick={() => setStep(1)} color="primary">
+          <Button variant="outlined" onClick={() => setStep(0)} color="primary">
             Cancelar y volver
           </Button>
           <Button type="submit" sx={{ marginLeft: '1rem' }} variant="contained" color="primary">
-            Guardar y finalizar
+            Guardar y continuar
           </Button>
         </div>
       </form>

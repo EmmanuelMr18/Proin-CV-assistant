@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
 import { Fragment, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { templateList } from '../data/templates';
-import { UserContext } from '../main';
+import { templateList } from '../../data/templates';
+import { UserContext } from '../../main';
 
 export function Home() {
   const user = useContext(UserContext);
