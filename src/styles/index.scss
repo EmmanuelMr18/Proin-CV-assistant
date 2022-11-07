@@ -1,40 +1,40 @@
 // @import 'tachyons/css/tachyons.min.css';
-@import "tachyons-sass/tachyons";
-@import "./initialForm.scss";
-@import "./preview.scss";
-
+@import 'tachyons-sass/tachyons';
+@import './initialForm.scss';
+@import './preview.scss';
+@import 'loadingPage';
 $primary: #aec3b0;
 
-input[type="text"] {
-    box-sizing: content-box;
+input[type='text'] {
+  box-sizing: content-box;
 }
 * {
-    font-family: "Roboto";
+  font-family: 'Roboto';
 }
 body {
-    background: rgb(243, 243, 243);
+  background: rgb(243, 243, 243);
 }
 
 .persona-first-row {
-    display: grid;
+  display: grid;
 }
 
 .user {
-    &__img {
-        width: 7rem;
-        height: 7rem;
-        border-radius: 50%;
-        overflow: hidden;
-    }
+  &__img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 }
 
-.designs{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    &__item {
-        &__img{
-            width: 100%;
-        }
+.designs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  &__item {
+    &__img {
+      width: 100%;
     }
+  }
 }

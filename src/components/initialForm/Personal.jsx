@@ -24,7 +24,6 @@ function readFile(file) {
 
 export function Personal({ setStep }) {
   const user = useContext(UserContext);
-  console.log(user);
   const [userImg, setUserImg] = useState(user.userImg);
   const [name, setName] = useState(user.name);
   const [job, setJob] = useState(user.job);

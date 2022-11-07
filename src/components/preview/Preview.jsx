@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import moment from 'moment';
 import { lazy, useEffect } from 'react';
 import { useState } from 'react';
@@ -30,5 +31,22 @@ export function Preview() {
     loadTemplate();
   }, [design]);
 
-  return <Suspense fallback="">{component}</Suspense>;
+  return (
+    <>
+      <div className="mw7 center">
+        <Button
+          id="download-print-btn"
+          onClick={() => {
+            window.print();
+          }}
+          variant="contained">
+          Descargar/Imprimir
+        </Button>
+      </div>
+      <div id="preview-container">
+        <Suspense fallback="">{component}</Suspense>
+      </div>
+      ;
+    </>
+  );
 }
