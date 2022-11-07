@@ -12,9 +12,8 @@ This is software is currently in alpha
 
 1. Vitejs
 2. React
-3. Typescript (on coming)
-4. SASS
-5. Material UI
+3. SASS
+4. Material UI
 
 ## How to install it?
 
