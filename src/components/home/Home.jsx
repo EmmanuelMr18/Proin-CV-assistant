@@ -5,8 +5,8 @@ import { templateList } from '../../data/templates';
 import { UserContext } from '../../main';
 
 export function Home() {
-  const user = useContext(UserContext);
-  const { userImg, name, description } = user;
+  const { userData } = useContext(UserContext);
+  const { userImg, name, description } = userData;
   const navigate = useNavigate();
   return (
     <Fragment>
@@ -18,7 +18,7 @@ export function Home() {
             </div>
           )}
           <div className="pl4 flex flex-column justify-center w-80">
-            <span className="db fw6 ">{`Bienvenido ${user.name}`}</span>
+            <span className="db fw6 ">{`Bienvenido ${userData.name}`}</span>
             <p className="mb0">
               <span className="fw6">Descripción: </span>
               {description}

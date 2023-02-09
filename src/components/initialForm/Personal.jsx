@@ -23,15 +23,15 @@ function readFile(file) {
 }
 
 export function Personal({ setStep }) {
-  const user = useContext(UserContext);
-  const [userImg, setUserImg] = useState(user.userImg);
-  const [name, setName] = useState(user.name);
-  const [job, setJob] = useState(user.job);
-  const [languages, setLanguages] = useState(user.languages);
-  const [skills, setSkills] = useState(user.skills);
-  const [description, setDescription] = useState(user.description);
-  const [achievements, setAchievements] = useState(user.achievements);
-  const [contacts, setContacts] = useState(user.contacts);
+  const { userData } = useContext(UserContext);
+  const [userImg, setUserImg] = useState(userData.userImg);
+  const [name, setName] = useState(userData.name);
+  const [job, setJob] = useState(userData.job);
+  const [languages, setLanguages] = useState(userData.languages);
+  const [skills, setSkills] = useState(userData.skills);
+  const [description, setDescription] = useState(userData.description);
+  const [achievements, setAchievements] = useState(userData.achievements);
+  const [contacts, setContacts] = useState(userData.contacts);
   const [alert, setAlert] = useState(false);
   const [languagesInput, setLanguagesInput] = useState('');
   const [skillsInput, setSkillsInput] = useState('');

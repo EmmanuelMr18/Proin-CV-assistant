@@ -6,8 +6,8 @@ import { UserContext } from '../../main';
 
 const emptyEducation = { education: '', title: '', start: '', end: '' };
 export function Education({ setStep }) {
-  const user = useContext(UserContext);
-  const [education, setEducation] = useState(user.education);
+  const { userData } = useContext(UserContext);
+  const [education, setEducation] = useState(userData.education);
   const [alert, setAlert] = useState(false);
   function onSubmit(e) {
     e.preventDefault();

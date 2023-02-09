@@ -18,5 +18,9 @@ export function useUserData() {
     };
     setUserData(dataInLocalStorage);
   }, []);
-  return userData;
+  function updateUserData(newData) {
+    setUserData((prev) => ({ ...prev, ...newData }));
+  }
+
+  return { userData, updateUserData };
 }

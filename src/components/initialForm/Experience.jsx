@@ -13,9 +13,9 @@ const emptyExperience = {
   description: ''
 };
 export function Experience({ setStep }) {
-  const user = useContext(UserContext);
+  const { userData } = useContext(UserContext);
   const navigate = useNavigate();
-  const [experience, setExperience] = useState(user.experience);
+  const [experience, setExperience] = useState(userData.experience);
   const [alert, setAlert] = useState(false);
   function onSubmit(e) {
     e.preventDefault();
