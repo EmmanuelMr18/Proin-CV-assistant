@@ -39,8 +39,7 @@ export function Preview() {
           onClick={() => {
             window.print();
           }}
-          variant="contained"
-        >
+          variant="contained">
           Descargar/Imprimir
         </Button>
       </div>

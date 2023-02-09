@@ -44,8 +44,7 @@ export default function SquareDesign() {
                     <li
                       className="right-panel__contact"
                       key={item}
-                      style={{ wordBreak: 'break-all' }}
-                    >
+                      style={{ wordBreak: 'break-all' }}>
                       {item}
                     </li>
                   );

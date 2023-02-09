@@ -20,8 +20,7 @@ export function Education({ setStep }) {
         open={!!alert}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         autoHideDuration={6000}
-        onClose={() => setAlert(false)}
-      >
+        onClose={() => setAlert(false)}>
         <Alert onClose={() => setAlert(false)} severity="error" sx={{ width: '100%' }}>
           {alert}
         </Alert>
@@ -210,8 +209,7 @@ export function Education({ setStep }) {
                   ...emptyEducation
                 }
               ])
-            }
-          >
+            }>
             Agregar otra
           </Button>
         </div>
