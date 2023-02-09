@@ -59,7 +59,8 @@ export function Personal({ setStep }) {
         open={!!alert}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         autoHideDuration={6000}
-        onClose={() => setAlert(false)}>
+        onClose={() => setAlert(false)}
+      >
         <Alert onClose={() => setAlert(false)} severity="error" sx={{ width: '100%' }}>
           {alert}
         </Alert>
@@ -259,7 +260,8 @@ export function Personal({ setStep }) {
                             console.log(test);
                             return test;
                           });
-                        }}>
+                        }}
+                      >
                         <ClearIcon />
                       </InputAdornment>
                     )
@@ -279,7 +281,8 @@ export function Personal({ setStep }) {
             <Button
               variant="outlined"
               onClick={() => setAchievements((prev) => [...prev, ''])}
-              color="secondary">
+              color="secondary"
+            >
               Agregar logro
             </Button>
           </div>
@@ -342,7 +345,8 @@ export function Personal({ setStep }) {
                         position="end"
                         onClick={() => {
                           setContacts((prev) => prev.filter((item, n) => index !== n));
-                        }}>
+                        }}
+                      >
                         <ClearIcon />
                       </InputAdornment>
                     )
@@ -362,7 +366,8 @@ export function Personal({ setStep }) {
             <Button
               variant="outlined"
               onClick={() => setContacts((prev) => [...prev, ''])}
-              color="secondary">
+              color="secondary"
+            >
               Agregar contacto
             </Button>
           </div>
