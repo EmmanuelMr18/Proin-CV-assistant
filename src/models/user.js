@@ -6,7 +6,7 @@ export const emptyuserData = {
   skills: [],
   description: '',
   achievements: [''],
-  contacts: [''],
+  contacts: ['', ''],
   education: [{ institution: '', title: '', start: '', end: '' }],
   experience: [{ company: '', job: '', start: '', end: '', description: '' }]
 };
