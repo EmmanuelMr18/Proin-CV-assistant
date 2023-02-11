@@ -22,5 +22,5 @@ export function useUserData() {
     setUserData((prev) => ({ ...prev, ...newData }));
   }
 
-  return { userData, updateUserData };
+  return { data: userData, update: updateUserData };
 }

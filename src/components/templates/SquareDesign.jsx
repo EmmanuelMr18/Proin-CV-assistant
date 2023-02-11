@@ -8,7 +8,7 @@ function convertDate(date) {
   return moment(date).format('MMMM YYYY');
 }
 export default function SquareDesign() {
-  const { userData } = useContext(UserContext);
+  const user = useContext(UserContext);
   const {
     name,
     job,
@@ -20,7 +20,7 @@ export default function SquareDesign() {
     languages,
     education,
     achievements
-  } = userData;
+  } = user.data;
   return (
     <>
       <style>{styles}</style>
