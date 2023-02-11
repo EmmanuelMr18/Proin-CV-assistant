@@ -3,16 +3,29 @@ import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
 import { UserContext } from '../../main';
+import { emptyuserData } from '../../models/user';
 
-const emptyEducation = { education: '', title: '', start: '', end: '' };
 export function Education({ setStep }) {
   const user = useContext(UserContext);
-  const [education, setEducation] = useState(user.data.education);
+  const { education } = user.data;
   const [alert, setAlert] = useState(false);
+
   function onSubmit(e) {
     e.preventDefault();
     localStorage.setItem('education', JSON.stringify(education));
     setStep(2);
+  }
+  function updateEducation(index, data) {
+    const educationUpdated = [...education];
+    educationUpdated[index] = { ...educationUpdated[index], ...data };
+    user.update({ education: educationUpdated });
+  }
+  function deleteEducation(index) {
+    const educationUpdated = education.filter((item, n) => n !== index);
+    user.update({ education: educationUpdated });
+  }
+  function addEducation() {
+    user.update({ education: education.concat(emptyuserData.education) });
   }
   return (
     <Fragment>
@@ -40,11 +53,7 @@ export function Education({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setEducation((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].institution = event.target.value;
-                    return listUpdated;
-                  });
+                  updateEducation(0, { institution: event.target.value });
                 }}
               />
             </div>
@@ -58,11 +67,7 @@ export function Education({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setEducation((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].title = event.target.value;
-                    return listUpdated;
-                  });
+                  updateEducation(0, { title: event.target.value });
                 }}
               />
             </div>
@@ -77,11 +82,7 @@ export function Education({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setEducation((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].start = event.target.value;
-                    return listUpdated;
-                  });
+                  updateEducation(0, { start: event.target.value });
                 }}
               />
             </div>
@@ -96,11 +97,7 @@ export function Education({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setEducation((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].end = event.target.value;
-                    return listUpdated;
-                  });
+                  updateEducation(0, { end: event.target.value });
                 }}
               />
             </div>
@@ -113,10 +110,7 @@ export function Education({ setStep }) {
               <Fragment key={`fragment-${index}`}>
                 <Divider className="education__divider" textAlign="right" key={`divider${index}`}>
                   <Button>
-                    <ClearIcon
-                      color="error"
-                      onClick={() => setEducation((prev) => prev.filter((item, n) => n !== index))}
-                    />
+                    <ClearIcon color="error" onClick={() => deleteEducation(index)} />
                   </Button>
                 </Divider>
                 <div className="education__item" key={`education-item${index}`}>
@@ -130,11 +124,7 @@ export function Education({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setEducation((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].institution = event.target.value;
-                          return listUpdated;
-                        });
+                        updateEducation(index, { institution: event.target.value });
                       }}
                     />
                   </div>
@@ -148,11 +138,7 @@ export function Education({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setEducation((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].title = event.target.value;
-                          return listUpdated;
-                        });
+                        updateEducation(index, { title: event.target.value });
                       }}
                     />
                   </div>
@@ -167,11 +153,7 @@ export function Education({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setEducation((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].start = event.target.value;
-                          return listUpdated;
-                        });
+                        updateEducation(index, { start: event.target.value });
                       }}
                     />
                   </div>
@@ -186,11 +168,7 @@ export function Education({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setEducation((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].end = event.target.value;
-                          return listUpdated;
-                        });
+                        updateEducation(index, { end: event.target.value });
                       }}
                     />
                   </div>
@@ -203,14 +181,7 @@ export function Education({ setStep }) {
             variant="outlined"
             startIcon={<AddIcon />}
             color="secondary"
-            onClick={() =>
-              setEducation((prev) => [
-                ...prev,
-                {
-                  ...emptyEducation
-                }
-              ])
-            }
+            onClick={addEducation}
           >
             Agregar otra
           </Button>
