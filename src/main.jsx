@@ -5,17 +5,8 @@ import ReactDOM from 'react-dom';
 
 import './styles/index.scss';
 import AppRouter from './components/AppRouter';
+import { theme } from './styles/theme';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#023047'
-    },
-    secondary: {
-      main: '#219EBC'
-    }
-  }
-});
 export const UserContext = React.createContext({});
 
 ReactDOM.render(
