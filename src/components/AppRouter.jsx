@@ -15,9 +15,9 @@ export default function AppRouter() {
   const userData = useUserData();
   return (
     <>
-      <Navbar />
       <BrowserRouter>
         <UserContext.Provider value={userData}>
+          <Navbar />
           <Routes>
             <Route element={<NotFound />} path="*" />
             <Route element={<Home />} path="/" />
