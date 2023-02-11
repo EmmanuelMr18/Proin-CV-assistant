@@ -4,23 +4,31 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../main';
+import { emptyuserData } from '../../models/user';
 
-const emptyExperience = {
-  company: '',
-  job: '',
-  start: '',
-  end: '',
-  description: ''
-};
 export function Experience({ setStep }) {
   const user = useContext(UserContext);
   const navigate = useNavigate();
-  const [experience, setExperience] = useState(user.data.experience);
+  const { experience } = user.data;
+
   const [alert, setAlert] = useState(false);
   function onSubmit(e) {
     e.preventDefault();
     localStorage.setItem('experience', JSON.stringify(experience));
     navigate(`/`);
+  }
+
+  function updateExperience(index, data) {
+    const experienceUpdated = [...experience];
+    experienceUpdated[index] = { ...experienceUpdated[index], ...data };
+    user.update({ experience: experienceUpdated });
+  }
+  function deleteExperience(index) {
+    const experienceUpdated = experience.filter((item, n) => n !== index);
+    user.update({ experience: experienceUpdated });
+  }
+  function addExperience() {
+    user.update({ experience: experience.concat(emptyuserData.experience) });
   }
   return (
     <Fragment>
@@ -48,11 +56,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].company = event.target.value;
-                    return listUpdated;
-                  });
+                  updateExperience(0, { company: event.target.value });
                 }}
               />
             </div>
@@ -66,11 +70,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].job = event.target.value;
-                    return listUpdated;
-                  });
+                  updateExperience(0, { job: event.target.value });
                 }}
               />
             </div>
@@ -85,11 +85,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].start = event.target.value;
-                    return listUpdated;
-                  });
+                  updateExperience(0, { start: event.target.value });
                 }}
               />
             </div>
@@ -104,11 +100,7 @@ export function Experience({ setStep }) {
                 fullWidth
                 required
                 onChange={(event) => {
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].end = event.target.value;
-                    return listUpdated;
-                  });
+                  updateExperience(0, { end: event.target.value });
                 }}
               />
             </div>
@@ -122,13 +114,9 @@ export function Experience({ setStep }) {
                 fullWidth
                 multiline
                 required
-                onChange={(event) =>
-                  setExperience((prev) => {
-                    const listUpdated = [...prev];
-                    listUpdated[0].description = event.target.value;
-                    return listUpdated;
-                  })
-                }
+                onChange={(event) => {
+                  updateExperience(0, { description: event.target.value });
+                }}
               />
             </div>
           </div>
@@ -142,7 +130,9 @@ export function Experience({ setStep }) {
                   <Button>
                     <ClearIcon
                       color="error"
-                      onClick={() => setExperience((prev) => prev.filter((item, n) => n !== index))}
+                      onClick={() => {
+                        deleteExperience(index);
+                      }}
                     />
                   </Button>
                 </Divider>
@@ -157,11 +147,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].company = event.target.value;
-                          return listUpdated;
-                        });
+                        updateExperience(index, { company: event.target.value });
                       }}
                     />
                   </div>
@@ -175,11 +161,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].job = event.target.value;
-                          return listUpdated;
-                        });
+                        updateExperience(index, { job: event.target.value });
                       }}
                     />
                   </div>
@@ -194,11 +176,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].start = event.target.value;
-                          return listUpdated;
-                        });
+                        updateExperience(index, { start: event.target.value });
                       }}
                     />
                   </div>
@@ -213,11 +191,7 @@ export function Experience({ setStep }) {
                       fullWidth
                       required
                       onChange={(event) => {
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].end = event.target.value;
-                          return listUpdated;
-                        });
+                        updateExperience(index, { end: event.target.value });
                       }}
                     />
                   </div>
@@ -231,13 +205,9 @@ export function Experience({ setStep }) {
                       fullWidth
                       multiline
                       required
-                      onChange={(event) =>
-                        setExperience((prev) => {
-                          const listUpdated = [...prev];
-                          listUpdated[index].description = event.target.value;
-                          return listUpdated;
-                        })
-                      }
+                      onChange={(event) => {
+                        updateExperience(index, { description: event.target.value });
+                      }}
                     />
                   </div>
                 </div>
@@ -249,14 +219,7 @@ export function Experience({ setStep }) {
             variant="outlined"
             startIcon={<AddIcon />}
             color="secondary"
-            onClick={() =>
-              setExperience((prev) => [
-                ...prev,
-                {
-                  ...emptyExperience
-                }
-              ])
-            }
+            onClick={addExperience}
           >
             Agregar otra
           </Button>
