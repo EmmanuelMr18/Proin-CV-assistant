@@ -1,40 +1,40 @@
 #preview-container {
-    width: 210mm;
-    min-height: 270mm;
-    padding: 10mm;
-    margin: 1rem auto;
-    // margin-top: calc(10mm + 2rem);
-    background-color: white;
-    color: $black;
+  width: 210mm;
+  min-height: 270mm;
+  padding: 10mm;
+  margin: 1rem auto;
+  // margin-top: calc(10mm + 2rem);
+  background-color: white;
+  color: $black;
 }
 @media print {
-    body {
-        background: white !important;
-    }
-    @page {
-        background-color: #fff;
-        size: letter;
-        margin: 1cm;
-        padding: 0;
-    }
-    #download-print-btn{
-        display: none;
-    }
-    #navbar {
-        display: none;
-    }
-    #preview-container {
-        padding: 0;
-        margin: 0;
-    }
-    #preview-content {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        min-height: initial;
-        // page-break-after: always;
-        background-color: initial;
-        color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
+  body {
+    background: white !important;
+  }
+  @page {
+    background-color: #fff;
+    size: letter;
+    margin: 1cm;
+    padding: 0;
+  }
+  #download-print-btn {
+    display: none;
+  }
+  #navbar {
+    display: none;
+  }
+  #preview-container {
+    padding: 0;
+    margin: 0;
+  }
+  #preview-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: initial;
+    // page-break-after: always;
+    background-color: initial;
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
 }

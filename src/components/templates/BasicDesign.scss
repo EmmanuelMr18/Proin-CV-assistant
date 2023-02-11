@@ -7,112 +7,112 @@ $sub-title2: 11pt;
 $text: 10pt;
 
 .doc {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto [last-line];
-    column-gap: 1rem;
-    color: $black;
-    line-height: 1.5;
-    & h3 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto [last-line];
+  column-gap: 1rem;
+  color: $black;
+  line-height: 1.5;
+  & h3 {
+    color: $gray;
+    margin-bottom: 0.75rem;
+  }
+  &__name {
+    grid-column: 1/10;
+    margin: 0 0 1rem 0;
+  }
+  &__job {
+    grid-column: 1/10;
+    font-size: 11pt;
+    font-weight: 500;
+  }
+  &__description {
+    grid-column: 1/10;
+    font-size: 10pt;
+    color: $gray-light;
+    margin: 1rem 0 1.5rem 0;
+  }
+  &__img {
+    grid-column: 10/13;
+    grid-row: 1/4;
+    justify-self: center;
+    align-self: flex-start;
+    height: 2.5cm;
+    width: 2.5cm;
+    border-radius: 50%;
+    overflow: hidden;
+    &__picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__divider {
+    grid-column: 1/13;
+  }
+  &__experiences {
+    grid-column: 1/8;
+    & .experience {
+      margin-bottom: 1.5rem;
+      &__job {
+        font-size: $text;
+        margin: 0;
+      }
+      &__brief {
+        font-size: $text;
         color: $gray;
-        margin-bottom: 0.75rem;
+        // font-weight: 500;
+        margin: 0.25rem 0;
+      }
+      &__description {
+        margin: 0;
+        font-size: $text;
+        font-weight: 400;
+      }
     }
-    &__name {
-        grid-column: 1/10;
-        margin: 0 0 1rem 0;
+    // grid-row: 4/last-line;
+    // grid-row-start: span 9000;
+  }
+  & .right-panel {
+    margin-left: 1rem;
+    grid-column: 8/13;
+    &__contact {
+      font-size: $text;
+      font-weight: 400;
     }
-    &__job {
-        grid-column: 1/10;
-        font-size: 11pt;
-        font-weight: 500;
+    &__skills {
+      margin-top: 2rem;
     }
-    &__description {
-        grid-column: 1/10;
-        font-size: 10pt;
-        color: $gray-light;
-        margin: 1rem 0 1.5rem 0;
+    &__skill {
+      font-size: $text;
     }
-    &__img {
-        grid-column: 10/13;
-        grid-row: 1/4;
-        justify-self: center;
-        align-self: flex-start;
-        height: 2.5cm;
-        width: 2.5cm;
-        border-radius: 50%;
-        overflow: hidden;
-        &__picture {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+    &__languages {
+      margin-top: 2rem;
     }
-    &__divider {
-        grid-column: 1/13;
+    &__education {
+      margin-top: 2rem;
+      &__item {
+        margin-bottom: 1rem;
+        font-size: $text;
+        &__company {
+          margin: 0;
+        }
+        &__title,
+        &__date {
+          color: $gray;
+        }
+      }
     }
-    &__experiences {
-        grid-column: 1/8;
-        & .experience {
-            margin-bottom: 1.5rem;
-            &__job {
-                font-size: $text;
-                margin: 0;
-            }
-            &__brief {
-                font-size: $text;
-                color: $gray;
-                // font-weight: 500;
-                margin: 0.25rem 0;
-            }
-            &__description {
-                margin: 0;
-                font-size: $text;
-                font-weight: 400;
-            }
-        }
-        // grid-row: 4/last-line;
-        // grid-row-start: span 9000;
+    &__achievements {
+      margin-top: 2rem;
     }
-    & .right-panel {
-        margin-left: 1rem;
-        grid-column: 8/13;
-        &__contact {
-            font-size: $text;
-            font-weight: 400;
-        }
-        &__skills {
-            margin-top: 2rem;
-        }
-        &__skill {
-            font-size: $text;
-        }
-        &__languages {
-            margin-top: 2rem;
-        }
-        &__education {
-            margin-top: 2rem;
-            &__item {
-                margin-bottom: 1rem;
-                font-size: $text;
-                &__company {
-                    margin: 0;
-                }
-                &__title,
-                &__date {
-                    color: $gray;
-                }
-            }
-        }
-        &__achievements {
-            margin-top: 2rem;
-        }
-        &__achievement {
-            font-size: $text;
-            margin-bottom: 0.5rem;
-            &:nth-last-child(1) {
-                margin-bottom: 0;
-            }
-        }
+    &__achievement {
+      font-size: $text;
+      margin-bottom: 0.5rem;
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
     }
+  }
 }
