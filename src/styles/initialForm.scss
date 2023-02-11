@@ -2,48 +2,48 @@
 #contact,
 #education,
 #experience {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 1rem;
-    & h2 {
-        grid-column: span 10;
-    }
-    & #upload-photo {
-        grid-column: 1/4;
-        grid-row: 2 span;
-    }
-    & #name,
-    #job {
-        grid-column: 4/11;
-    }
-    & .half-width {
-        grid-column: span 5;
-    }
-    & .full-width {
-        grid-column: span 10;
-    }
-    & .form-btn {
-        display: flex;
-        // justify-content: center;
-        align-items: center;
-        // & button {
-        //     padding-top: 16.5px;
-        //     padding-right: 20px;
-        //     padding-bottom: 16.5px;
-        //     padding-left: 20px;
-        // }
-    }
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+  & h2 {
+    grid-column: span 10;
+  }
+  & #upload-photo {
+    grid-column: 1/4;
+    grid-row: 2 span;
+  }
+  & #name,
+  #job {
+    grid-column: 4/11;
+  }
+  & .half-width {
+    grid-column: span 5;
+  }
+  & .full-width {
+    grid-column: span 10;
+  }
+  & .form-btn {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    // & button {
+    //     padding-top: 16.5px;
+    //     padding-right: 20px;
+    //     padding-bottom: 16.5px;
+    //     padding-left: 20px;
+    // }
+  }
 }
 .education,
 .experience {
-    &__item {
-        grid-column: span 10;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 1rem;
-    }
-    &__add,
-    &__divider {
-        grid-column: span 10;
-    }
+  &__item {
+    grid-column: span 10;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1rem;
+  }
+  &__add,
+  &__divider {
+    grid-column: span 10;
+  }
 }
