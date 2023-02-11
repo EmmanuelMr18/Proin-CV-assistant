@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { Fragment, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { templateList } from '../../data/templates';
 import { UserContext } from '../../main';
@@ -37,13 +38,14 @@ export function Home() {
           {templateList.map((templateName) => {
             return (
               <article key={templateName}>
-                <a className="designs__item dim" href={`/preview?design=${templateName}`}>
+                <Link className="designs__item dim" to={`/preview?design=${templateName}`}>
                   <img
                     className="designs__item__img"
                     src={`/assets/templates/${templateName}.png`}
                     alt={templateName}
                   />
-                </a>
+                </Link>
+                {/* <a className="" href={`/preview?design=${templateName}`}></a> */}
               </article>
             );
           })}
