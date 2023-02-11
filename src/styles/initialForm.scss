@@ -1,3 +1,9 @@
+.initial-form {
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 64rem;
+}
 #personal,
 #contact,
 #education,
@@ -8,14 +14,6 @@
   & h2 {
     grid-column: span 10;
   }
-  & #upload-photo {
-    grid-column: 1/4;
-    grid-row: 2 span;
-  }
-  & #name,
-  #job {
-    grid-column: 4/11;
-  }
   & .half-width {
     grid-column: span 5;
   }
@@ -24,14 +22,17 @@
   }
   & .form-btn {
     display: flex;
-    // justify-content: center;
     align-items: center;
-    // & button {
-    //     padding-top: 16.5px;
-    //     padding-right: 20px;
-    //     padding-bottom: 16.5px;
-    //     padding-left: 20px;
-    // }
+  }
+}
+#personal {
+  & #upload-photo {
+    grid-column: 1/4;
+    grid-row: 2 span;
+  }
+  & #name,
+  #job {
+    grid-column: 4/11;
   }
 }
 .education,
