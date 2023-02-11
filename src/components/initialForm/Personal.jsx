@@ -24,14 +24,7 @@ function readFile(file) {
 
 export function Personal({ setStep }) {
   const user = useContext(UserContext);
-  const [userImg, setUserImg] = useState(user.data.userImg);
-  const [name, setName] = useState(user.data.name);
-  const [job, setJob] = useState(user.data.job);
-  const [languages, setLanguages] = useState(user.data.languages);
-  const [skills, setSkills] = useState(user.data.skills);
-  const [description, setDescription] = useState(user.data.description);
-  const [achievements, setAchievements] = useState(user.data.achievements);
-  const [contacts, setContacts] = useState(user.data.contacts);
+  const { userImg, name, job, languages, skills, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
   const [languagesInput, setLanguagesInput] = useState('');
   const [skillsInput, setSkillsInput] = useState('');
@@ -86,7 +79,7 @@ export function Personal({ setStep }) {
               onChange={async (event) => {
                 const file = Object.values(event.target.files)[0];
                 const imageDataUrl = await readFile(file);
-                setUserImg(imageDataUrl);
+                user.update({ userImg: imageDataUrl });
               }}
             />
           </label>
@@ -98,7 +91,7 @@ export function Personal({ setStep }) {
               placeholder="Johndoe"
               required
               fullWidth
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => user.update({ name: event.target.value })}
             />
           </div>
           <div id="job">
@@ -110,7 +103,7 @@ export function Personal({ setStep }) {
               margin="normal"
               fullWidth
               required
-              onChange={(event) => setJob(event.target.value)}
+              onChange={(event) => user.update({ job: event.target.value })}
             />
           </div>
           <div className="half-width">
@@ -135,7 +128,7 @@ export function Personal({ setStep }) {
                       setAlert('Ya agregaste este idioma');
                       return;
                     }
-                    setLanguages((prev) => prev.concat(languagesInput));
+                    user.update({ languages: languages.concat(languagesInput) });
                     setLanguagesInput('');
                     return;
                   }
@@ -150,7 +143,7 @@ export function Personal({ setStep }) {
                         key={lang}
                         label={lang}
                         onDelete={() => {
-                          setLanguages((prev) => prev.filter((item) => item !== lang));
+                          user.update({ languages: languages.filter((item) => item !== lang) });
                         }}
                       />
                     );
@@ -164,7 +157,6 @@ export function Personal({ setStep }) {
             </InputLabel>
             <div className="flex flex-wrap w-100">
               <TextField
-                // inputRef={skillsInput}
                 variant="standard"
                 placeholder="Javascript"
                 InputLabelProps={{ shrink: true }}
@@ -182,7 +174,7 @@ export function Personal({ setStep }) {
                       setAlert('Ya agregaste esta habilidad');
                       return;
                     }
-                    setSkills((prev) => prev.concat(skillsInput));
+                    user.update({ skills: skills.concat(skillsInput) });
                     setSkillsInput('');
                     return;
                   }
@@ -197,7 +189,7 @@ export function Personal({ setStep }) {
                         key={skill}
                         label={skill}
                         onDelete={() => {
-                          setSkills((prev) => prev.filter((item) => item !== skill));
+                          user.update({ skills: skills.filter((item) => item !== skill) });
                         }}
                       />
                     );
@@ -215,7 +207,7 @@ export function Personal({ setStep }) {
               fullWidth
               multiline
               required
-              onChange={(event) => setDescription(event.target.value)}
+              onChange={(event) => user.update({ description: event.target.value })}
             />
           </div>
           <div className="half-width">
@@ -227,11 +219,9 @@ export function Personal({ setStep }) {
               margin="normal"
               fullWidth
               onChange={(event) => {
-                setAchievements((prev) => {
-                  const listUpdated = [...prev];
-                  listUpdated[0] = event.target.value;
-                  return listUpdated;
-                });
+                const listUpdated = [...achievements];
+                listUpdated[0] = event.target.value;
+                user.update({ achievements: listUpdated });
               }}
             />
           </div>
@@ -255,11 +245,8 @@ export function Personal({ setStep }) {
                         className="pointer"
                         position="end"
                         onClick={() => {
-                          setAchievements((prev) => {
-                            const test = prev.filter((item, n) => index !== n);
-                            console.log(test);
-                            return test;
-                          });
+                          const listUpdated = achievements.filter((item, n) => index !== n);
+                          user.update({ achievements: listUpdated });
                         }}
                       >
                         <ClearIcon />
@@ -267,11 +254,9 @@ export function Personal({ setStep }) {
                     )
                   }}
                   onChange={(event) => {
-                    setAchievements((prev) => {
-                      const listUpdated = [...prev];
-                      listUpdated[index] = event.target.value;
-                      return listUpdated;
-                    });
+                    const listUpdated = [...achievements];
+                    listUpdated[index] = event.target.value;
+                    user.update({ achievements: listUpdated });
                   }}
                 />
               </div>
@@ -280,7 +265,9 @@ export function Personal({ setStep }) {
           <div className="half-width form-btn">
             <Button
               variant="outlined"
-              onClick={() => setAchievements((prev) => [...prev, ''])}
+              onClick={() => {
+                user.update({ achievements: achievements.concat('') });
+              }}
               color="secondary"
             >
               Agregar logro
@@ -297,13 +284,11 @@ export function Personal({ setStep }) {
               placeholder="emman.mr@gmail.com"
               margin="normal"
               fullWidth
-              onChange={(event) =>
-                setContacts((prev) => {
-                  const listUpdated = [...prev];
-                  listUpdated[0] = event.target.value;
-                  return listUpdated;
-                })
-              }
+              onChange={(event) => {
+                const contactsUpdated = [...contacts];
+                contactsUpdated[0] = event.target.value;
+                user.update({ contacts: contactsUpdated });
+              }}
               required
             />
           </div>
@@ -315,13 +300,11 @@ export function Personal({ setStep }) {
               placeholder="https://www.linkedin.com/in/emmanuel-mr18/"
               margin="normal"
               fullWidth
-              onChange={(event) =>
-                setContacts((prev) => {
-                  const listUpdated = [...prev];
-                  listUpdated[1] = event.target.value;
-                  return listUpdated;
-                })
-              }
+              onChange={(event) => {
+                const contactsUpdated = [...contacts];
+                contactsUpdated[1] = event.target.value;
+                user.update({ contacts: contactsUpdated });
+              }}
             />
           </div>
           {contacts.map((contact, index) => {
@@ -344,7 +327,7 @@ export function Personal({ setStep }) {
                         className="pointer"
                         position="end"
                         onClick={() => {
-                          setContacts((prev) => prev.filter((item, n) => index !== n));
+                          user.update({ contacts: contacts.filter((item, n) => index !== n) });
                         }}
                       >
                         <ClearIcon />
@@ -352,11 +335,9 @@ export function Personal({ setStep }) {
                     )
                   }}
                   onChange={(event) => {
-                    setContacts((prev) => {
-                      const listUpdated = [...prev];
-                      listUpdated[index] = event.target.value;
-                      return listUpdated;
-                    });
+                    const contactsUpdated = [...contacts];
+                    contactsUpdated[index] = event.target.value;
+                    user.update({ contacts: contactsUpdated });
                   }}
                 />
               </div>
@@ -365,7 +346,9 @@ export function Personal({ setStep }) {
           <div className="half-width form-btn">
             <Button
               variant="outlined"
-              onClick={() => setContacts((prev) => [...prev, ''])}
+              onClick={() => {
+                user.update({ contacts: contacts.concat('') });
+              }}
               color="secondary"
             >
               Agregar contacto
