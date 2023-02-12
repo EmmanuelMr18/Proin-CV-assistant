@@ -1,18 +1,9 @@
 import ClearIcon from '@mui/icons-material/Clear';
-import {
-  Alert,
-  Button,
-  Chip,
-  Input,
-  InputAdornment,
-  InputLabel,
-  Snackbar,
-  Stack,
-  TextField
-} from '@mui/material';
+import { Alert, Button, Input, InputAdornment, Snackbar, TextField } from '@mui/material';
 import { Fragment, useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { Languages } from './Languages';
+import { Skills } from './Skills';
 function readFile(file) {
   return new Promise((resolve) => {
     const reader = new window.FileReader();
@@ -27,7 +18,6 @@ export function Personal({ setStep }) {
   const user = useContext(UserContext);
   const { userImg, name, job, languages, skills, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
-  const [skillsInput, setSkillsInput] = useState('');
 
   function onSubmit(event) {
     event.preventDefault();
@@ -110,50 +100,7 @@ export function Personal({ setStep }) {
             <Languages />
           </div>
           <div className="half-width">
-            <InputLabel className="w-100" shrink>
-              ¿Cuáles son tus habilidades?
-            </InputLabel>
-            <div className="flex flex-wrap w-100">
-              <TextField
-                variant="standard"
-                placeholder="Javascript"
-                InputLabelProps={{ shrink: true }}
-                value={skillsInput}
-                onChange={(event) => setSkillsInput(event.target.value)}
-                onKeyPress={(e) => {
-                  // const value = skillsInput.current.value;
-                  if (e.key === 'Enter' && skillsInput.length === 0) {
-                    event.preventDefault();
-                    return;
-                  }
-                  if (e.key === 'Enter') {
-                    event.preventDefault();
-                    if (skills.includes(skillsInput)) {
-                      setAlert('Ya agregaste esta habilidad');
-                      return;
-                    }
-                    user.update({ skills: skills.concat(skillsInput) });
-                    setSkillsInput('');
-                    return;
-                  }
-                }}
-                fullWidth
-              />
-              <Stack className="overflow-x-auto mw-100 pt2" direction="row" spacing={1}>
-                {skills.length > 0 &&
-                  skills.map((skill) => {
-                    return (
-                      <Chip
-                        key={skill}
-                        label={skill}
-                        onDelete={() => {
-                          user.update({ skills: skills.filter((item) => item !== skill) });
-                        }}
-                      />
-                    );
-                  })}
-              </Stack>
-            </div>
+            <Skills />
           </div>
           <div className="full-width">
             <TextField
