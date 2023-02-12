@@ -107,9 +107,6 @@ export function Personal({ setStep }) {
             />
           </div>
           <div className="half-width">
-            <InputLabel className="w-100" shrink>
-              ¿Qué idiomas hablas?
-            </InputLabel>
             <Languages />
           </div>
           <div className="half-width">

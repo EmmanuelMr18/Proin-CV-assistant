@@ -1,4 +1,4 @@
-import { Alert, Chip, Snackbar, Stack, TextField } from '@mui/material';
+import { Chip, InputLabel, Stack, TextField } from '@mui/material';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { AlertToast } from '../../shared/AlertToast';
@@ -10,6 +10,9 @@ export function Languages() {
   const [languagesInput, setLanguagesInput] = useState('');
   return (
     <>
+      <InputLabel className="w-100" shrink>
+        ¿Qué idiomas hablas?
+      </InputLabel>
       <div className="flex flex-wrap w-100">
         <TextField
           value={languagesInput}
