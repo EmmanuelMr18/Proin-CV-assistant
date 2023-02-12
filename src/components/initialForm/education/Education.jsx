@@ -2,8 +2,8 @@ import { Alert, Button, Divider, Snackbar, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
-import { UserContext } from '../../main';
-import { emptyuserData } from '../../models/user';
+import { UserContext } from '../../../main';
+import { emptyuserData } from '../../../models/user';
 
 export function Education({ setStep }) {
   const user = useContext(UserContext);

@@ -11,7 +11,8 @@ import {
   TextField
 } from '@mui/material';
 import { Fragment, useContext, useState } from 'react';
-import { UserContext } from '../../main';
+import { UserContext } from '../../../main';
+import { Languages } from './Languages';
 function readFile(file) {
   return new Promise((resolve) => {
     const reader = new window.FileReader();
@@ -26,7 +27,6 @@ export function Personal({ setStep }) {
   const user = useContext(UserContext);
   const { userImg, name, job, languages, skills, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
-  const [languagesInput, setLanguagesInput] = useState('');
   const [skillsInput, setSkillsInput] = useState('');
 
   function onSubmit(event) {
@@ -110,46 +110,7 @@ export function Personal({ setStep }) {
             <InputLabel className="w-100" shrink>
               ¿Qué idiomas hablas?
             </InputLabel>
-            <div className="flex flex-wrap w-100">
-              <TextField
-                value={languagesInput}
-                variant="standard"
-                placeholder="English..."
-                InputLabelProps={{ shrink: true }}
-                onChange={(event) => setLanguagesInput(event.target.value)}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter' && languagesInput.length === 0) {
-                    event.preventDefault();
-                    return;
-                  }
-                  if (e.key === 'Enter') {
-                    event.preventDefault();
-                    if (languages.includes(languagesInput)) {
-                      setAlert('Ya agregaste este idioma');
-                      return;
-                    }
-                    user.update({ languages: languages.concat(languagesInput) });
-                    setLanguagesInput('');
-                    return;
-                  }
-                }}
-                fullWidth
-              />
-              <Stack className="overflow-x-auto mw-100 pt2" direction="row" spacing={1}>
-                {languages.length > 0 &&
-                  languages.map((lang) => {
-                    return (
-                      <Chip
-                        key={lang}
-                        label={lang}
-                        onDelete={() => {
-                          user.update({ languages: languages.filter((item) => item !== lang) });
-                        }}
-                      />
-                    );
-                  })}
-              </Stack>
-            </div>
+            <Languages />
           </div>
           <div className="half-width">
             <InputLabel className="w-100" shrink>
