@@ -85,7 +85,7 @@ export default function SquareDesign() {
                       <h4 className="right-panel__education__item__company">{item.institution}</h4>
                       <span className="right-panel__education__item__title db">{item.title}</span>
                       <span className="right-panel__education__item__date db">
-                        {convertDate(item.start)} -{convertDate(item.start)}`
+                        {convertDate(item.start)} -{convertDate(item.end)}
                       </span>
                     </div>
                   );
