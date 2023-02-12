@@ -3,7 +3,7 @@ import { Alert, Snackbar } from '@mui/material';
 export function AlertToast({ alert, onClose }) {
   return (
     <Snackbar
-      open={alert}
+      open={!!alert}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       autoHideDuration={3000}
       onClose={onClose}
