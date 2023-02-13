@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { templateList } from '../../data/templates';
 import { UserContext } from '../../main';
+import { ActionsMenu } from './ActionsMenu';
 
 export function Home() {
   const user = useContext(UserContext);
@@ -28,6 +29,7 @@ export function Home() {
           <Button variant="contained" color="primary" onClick={() => navigate(`/fill-data`)}>
             Editar mis datos
           </Button>
+          <ActionsMenu />
         </div>
       </div>
       <div className="home__designs">
