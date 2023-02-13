@@ -1,0 +1,38 @@
+.home {
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    max-width: 96rem;
+    padding: 1rem;
+    &__actions {
+      display: flex;
+      gap: 0.5rem;
+      width: 30%;
+    }
+  }
+  &__designs {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 96rem;
+    padding: 2rem 1rem;
+  }
+}
+.user {
+  &__img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+    width: 80%;
+  }
+}

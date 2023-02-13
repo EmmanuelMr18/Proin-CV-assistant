@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
-import { Fragment, useContext } from 'react';
+import { Button, Typography } from '@mui/material';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { templateList } from '../../data/templates';
@@ -9,31 +9,29 @@ export function Home() {
   const user = useContext(UserContext);
   const { userImg, name, description } = user.data;
   const navigate = useNavigate();
+
   return (
-    <Fragment>
-      <div className="mw9 mt4 pa3 center flex justify-between items-center">
-        <div className="user flex flex-wrap w-80">
+    <div className="home">
+      <div className="home__header">
+        <div className="user flex flex-wrap w-70">
           {userImg && (
             <div className="user__img">
               <img className="user__img__picture" src={userImg} alt={`${name}-picture`} />
             </div>
           )}
-          <div className="pl4 flex flex-column justify-center w-80">
-            <span className="db fw6 ">{`Bienvenido ${user.data.name}`}</span>
-            <p className="mb0">
-              <span className="fw6">Descripción: </span>
-              {description}
-            </p>
+          <div className="user__text">
+            <Typography variant="h6">{user.data.name}</Typography>
+            <Typography>{description}</Typography>
           </div>
         </div>
-        <div className="w-20">
+        <div className="home__header__actions">
           <Button variant="contained" color="primary" onClick={() => navigate(`/fill-data`)}>
             Editar mis datos
           </Button>
         </div>
       </div>
-      <div className="mw9 pv4 pa3 center">
-        <h4 className="fw5 ">Diseños disponibles</h4>
+      <div className="home__designs">
+        <Typography variant="h6">Diseños disponibles</Typography>
         <section className="designs">
           {templateList.map((templateName) => {
             return (
@@ -45,12 +43,11 @@ export function Home() {
                     alt={templateName}
                   />
                 </Link>
-                {/* <a className="" href={`/preview?design=${templateName}`}></a> */}
               </article>
             );
           })}
         </section>
       </div>
-    </Fragment>
+    </div>
   );
 }

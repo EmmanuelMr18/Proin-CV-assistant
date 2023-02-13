@@ -3,6 +3,8 @@
 @import './initialForm.scss';
 @import './preview.scss';
 @import 'loadingPage';
+@import 'home';
+
 $primary: #aec3b0;
 
 input[type='text'] {
@@ -17,15 +19,6 @@ body {
 
 .persona-first-row {
   display: grid;
-}
-
-.user {
-  &__img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    overflow: hidden;
-  }
 }
 
 .designs {
