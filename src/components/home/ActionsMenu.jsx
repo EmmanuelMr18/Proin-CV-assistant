@@ -6,10 +6,11 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { exportObj, importText } from '../../data/utlis';
 import { UserContext } from '../../main';
-import { emptyuserData } from '../../models/user';
+import { useNavigate } from 'react-router-dom';
 
 export function ActionsMenu() {
   const user = useContext(UserContext);
+  const navigate = useNavigate();
   const [actionsEl, setActionsEl] = useState(null);
 
   function handleActionsBtn(event) {
@@ -28,7 +29,8 @@ export function ActionsMenu() {
     exportObj(user.data, filename);
   }
   function deleteData() {
-    user.update({ ...emptyuserData });
+    localStorage.clear();
+    navigate('/');
   }
   return (
     <>
