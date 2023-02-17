@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { emptyuserData } from '../models/user';
-
+const complexValues = [
+  'languages',
+  'skills',
+  'achievements',
+  'contacts',
+  'education',
+  'experience'
+];
 export function useUserData() {
   const [userData, setUserData] = useState(emptyuserData);
   useEffect(() => {
@@ -19,6 +26,12 @@ export function useUserData() {
     setUserData(dataInLocalStorage);
   }, []);
   function updateUserData(newData) {
+    Object.entries(newData).forEach(([key, value]) => {
+      if (complexValues.includes(key)) {
+        value = JSON.stringify(value);
+      }
+      localStorage.setItem(key, value);
+    });
     setUserData((prev) => ({ ...prev, ...newData }));
   }
 

@@ -12,6 +12,9 @@
       display: flex;
       gap: 0.5rem;
       width: 30%;
+      &__hidden {
+        display: none;
+      }
     }
   }
   &__designs {
