@@ -28,8 +28,8 @@ export function ActionsMenu() {
     exportObj(user.data, filename);
   }
   function deleteData() {
-    localStorage.clear();
-    navigate('/');
+    user.delete();
+    navigate('/getting-started');
   }
   return (
     <>

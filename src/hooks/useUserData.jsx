@@ -34,6 +34,10 @@ export function useUserData() {
     });
     setUserData((prev) => ({ ...prev, ...newData }));
   }
+  function deleteUserData() {
+    setUserData(emptyuserData);
+    localStorage.clear();
+  }
 
-  return { data: userData, update: updateUserData };
+  return { data: userData, update: updateUserData, delete: deleteUserData };
 }
