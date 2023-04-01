@@ -1,9 +1,11 @@
 // @import 'tachyons/css/tachyons.min.css';
 @import 'tachyons-sass/tachyons';
+@import 'variables';
 @import './initialForm.scss';
 @import './preview.scss';
 @import 'loadingPage';
 @import 'home';
+@import 'getting-started';
 
 $primary: #aec3b0;
 
@@ -12,9 +14,23 @@ input[type='text'] {
 }
 * {
   font-family: 'Roboto';
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#navbar {
+  & img {
+    width: 7rem;
+  }
 }
 body {
-  background: rgb(243, 243, 243);
+  background: rgb(252, 252, 252);
 }
 
 .persona-first-row {
