@@ -16,3 +16,8 @@ export function exportObj(dataObj, filename) {
   a.href = window.URL.createObjectURL(blob);
   a.click();
 }
+export async function importData(event) {
+  const dataImported = await importText(event);
+  const dataObj = JSON.parse(dataImported);
+  return dataObj;
+}

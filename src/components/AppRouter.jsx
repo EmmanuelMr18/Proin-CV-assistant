@@ -3,6 +3,7 @@ import { Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { useUserData } from '../hooks/useUserData';
 import { UserContext } from '../main';
+import { GettingStarted } from './gettingStarted/GettingStarted';
 // import { Authentication } from './Authentication';
 import { Home } from './home/Home';
 import { InitialForm } from './initialForm/InitialForm';
@@ -23,6 +24,7 @@ export default function AppRouter() {
             <Route element={<Home />} path="/" />
             <Route element={<Login />} path="/login" />
             <Route element={<InitialForm />} path="/fill-data" />
+            <Route element={<GettingStarted />} path="getting-started" />
             <Route element={<Preview />} path="preview/*" />
           </Routes>
         </UserContext.Provider>

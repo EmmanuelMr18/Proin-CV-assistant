@@ -1,0 +1,27 @@
+.getting-started {
+  background-size: cover;
+  display: grid;
+  height: 100%;
+  place-content: center;
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+.action-card {
+  &__content {
+    width: 20rem;
+    // height: 18rem;
+    text-align: center;
+    &__icon {
+      @include flexRow(center, center);
+      font-size: 150px;
+    }
+    &__text {
+      margin: 1.5rem 0;
+    }
+  }
+}

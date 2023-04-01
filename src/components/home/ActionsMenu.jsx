@@ -4,9 +4,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import { exportObj, importText } from '../../data/utlis';
 import { UserContext } from '../../main';
 import { useNavigate } from 'react-router-dom';
+import { exportObj, importData } from '../../utils/utils';
 
 export function ActionsMenu() {
   const user = useContext(UserContext);
@@ -19,11 +19,10 @@ export function ActionsMenu() {
   function handleOnClose() {
     setActionsEl(null);
   }
-  async function importData(event) {
-    const dataImported = await importText(event);
-    const dataObj = JSON.parse(dataImported);
-    user.update({ ...dataObj });
+  function handleImportData(e) {
+    importData(e).then((dataObj) => user.update({ ...dataObj }));
   }
+
   function exportData() {
     const filename = `${user.data.name} proinCV.json`;
     exportObj(user.data, filename);
@@ -68,7 +67,7 @@ export function ActionsMenu() {
         className="home__header__actions__hidden"
         type="file"
         id="import-data"
-        onChange={importData}
+        onChange={handleImportData}
       />
     </>
   );
