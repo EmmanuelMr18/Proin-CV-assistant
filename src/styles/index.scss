@@ -25,6 +25,8 @@ input[type='text'] {
   overflow: hidden;
 }
 #navbar {
+  @include flexRow(center, center);
+  margin-top: 1rem;
   & img {
     width: 7rem;
   }
