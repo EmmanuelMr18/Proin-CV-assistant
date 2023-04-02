@@ -1,32 +1,15 @@
 import ClearIcon from '@mui/icons-material/Clear';
-import {
-  Alert,
-  Avatar,
-  Button,
-  IconButton,
-  InputAdornment,
-  Snackbar,
-  TextField
-} from '@mui/material';
-import { Fragment, useContext, useRef, useState } from 'react';
+import { Alert, Button, InputAdornment, Snackbar, TextField } from '@mui/material';
+import { Fragment, useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { Languages } from './Languages';
 import { Skills } from './Skills';
-function readFile(file) {
-  return new Promise((resolve) => {
-    const reader = new window.FileReader();
-    reader.addEventListener('load', () => {
-      resolve(reader.result), false;
-    });
-    reader.readAsDataURL(file);
-  });
-}
+import { AvatarSection } from './AvatarSection';
 
 export function Personal({ setStep }) {
   const user = useContext(UserContext);
-  const { userImg, name, job, description, achievements, contacts } = user.data;
+  const { name, job, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
-  const userImgInput = useRef(null);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -47,26 +30,9 @@ export function Personal({ setStep }) {
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4" id="personal">
           <h2 className="">Información general</h2>
-          <IconButton
-            onClick={() => {
-              userImgInput.current.click();
-            }}
-          >
-            {userImg && <Avatar src={userImg} sx={{ width: 128, height: 128 }} />}
-            {!userImg && <Avatar src="/broken-image.jpg" sx={{ width: 128, height: 128 }} />}
-          </IconButton>
-
-          <input
-            ref={userImgInput}
-            accept="image/png, image/gif, image/jpeg"
-            id="contained-button-file"
-            type="file"
-            onChange={async (event) => {
-              const file = Object.values(event.target.files)[0];
-              const imageDataUrl = await readFile(file);
-              user.update({ userImg: imageDataUrl });
-            }}
-          />
+          <div id="photo">
+            <AvatarSection />
+          </div>
           <div id="name">
             <TextField
               value={name}
