@@ -226,10 +226,10 @@ export function Experience({ setStep }) {
         </div>
         <div className="flex justify-end mt3">
           <Button variant="outlined" onClick={() => setStep(1)} color="primary">
-            Cancelar y volver
+            Anterior
           </Button>
           <Button type="submit" sx={{ marginLeft: '1rem' }} variant="contained" color="primary">
-            Guardar y finalizar
+            Finalizar
           </Button>
         </div>
       </form>

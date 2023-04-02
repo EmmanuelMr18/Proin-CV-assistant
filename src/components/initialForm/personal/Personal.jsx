@@ -222,7 +222,7 @@ export function Personal({ setStep }) {
         </div>
         <div className="flex justify-end">
           <Button sx={{ marginLeft: '1rem' }} variant="contained" type="submit" color="primary">
-            Guardar y continuar
+            Siguiente
           </Button>
         </div>
       </form>

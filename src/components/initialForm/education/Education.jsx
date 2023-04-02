@@ -188,10 +188,10 @@ export function Education({ setStep }) {
         </div>
         <div className="flex justify-end mt3">
           <Button variant="outlined" onClick={() => setStep(0)} color="primary">
-            Cancelar y volver
+            Anterior
           </Button>
           <Button type="submit" sx={{ marginLeft: '1rem' }} variant="contained" color="primary">
-            Guardar y continuar
+            Siguiente
           </Button>
         </div>
       </form>
