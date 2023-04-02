@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../main';
 import moment from 'moment';
 import styles from './SquareDesign.scss?inline';
+import { MultilineText } from '../shared/MultilineText';
 
 function convertDate(date) {
   return moment(date).format('MMMM YYYY');
@@ -116,7 +117,9 @@ export default function SquareDesign() {
                                 ${convertDate(item.start)} -
                                 ${convertDate(item.end)}`}
                   </p>
-                  <p className="experience__description">{item.description}</p>
+                  <p className="experience__description">
+                    <MultilineText text={item.description} />
+                  </p>
                 </div>
               );
             })}
