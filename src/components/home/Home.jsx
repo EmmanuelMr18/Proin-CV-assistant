@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Avatar, Button, Typography } from '@mui/material';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -16,9 +16,7 @@ export function Home() {
       <div className="home__header">
         <div className="user flex flex-wrap w-70">
           {userImg && (
-            <div className="user__img">
-              <img className="user__img__picture" src={userImg} alt={`${name}-picture`} />
-            </div>
+            <Avatar src={userImg} sx={{ width: 128, height: 128 }} alt={`picture-${name}`} />
           )}
           <div className="user__text">
             <Typography variant="h6">{user.data.name}</Typography>

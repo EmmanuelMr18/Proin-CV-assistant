@@ -25,12 +25,6 @@
   }
 }
 .user {
-  &__img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    overflow: hidden;
-  }
   &__text {
     display: flex;
     flex-direction: column;

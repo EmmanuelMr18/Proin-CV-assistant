@@ -27,8 +27,12 @@
 }
 #personal {
   & #upload-photo {
+    cursor: pointer;
     grid-column: 1/4;
     grid-row: 2 span;
+  }
+  & #contained-button-file {
+    display: none;
   }
   & #name,
   #job {

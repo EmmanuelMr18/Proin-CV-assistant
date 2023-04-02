@@ -1,6 +1,14 @@
 import ClearIcon from '@mui/icons-material/Clear';
-import { Alert, Button, Input, InputAdornment, Snackbar, TextField } from '@mui/material';
-import { Fragment, useContext, useState } from 'react';
+import {
+  Alert,
+  Avatar,
+  Button,
+  IconButton,
+  InputAdornment,
+  Snackbar,
+  TextField
+} from '@mui/material';
+import { Fragment, useContext, useRef, useState } from 'react';
 import { UserContext } from '../../../main';
 import { Languages } from './Languages';
 import { Skills } from './Skills';
@@ -16,24 +24,12 @@ function readFile(file) {
 
 export function Personal({ setStep }) {
   const user = useContext(UserContext);
-  const { userImg, name, job, languages, skills, description, achievements, contacts } = user.data;
+  const { userImg, name, job, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
+  const userImgInput = useRef(null);
 
   function onSubmit(event) {
     event.preventDefault();
-    const data = {
-      userImg,
-      name,
-      job,
-      languages: JSON.stringify(languages),
-      skills: JSON.stringify(skills),
-      description,
-      achievements: JSON.stringify(achievements),
-      contacts: JSON.stringify(contacts)
-    };
-    Object.entries(data).forEach((item) => {
-      localStorage.setItem(item[0], item[1]);
-    });
     setStep(1);
   }
   return (
@@ -51,28 +47,26 @@ export function Personal({ setStep }) {
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4" id="personal">
           <h2 className="">Información general</h2>
-          <label id="upload-photo" htmlFor="contained-button-file">
-            {userImg && (
-              <div className="w4 h4 overflow-hidden">
-                <img
-                  className="w-100 h-100"
-                  src={userImg}
-                  alt="name"
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            )}
-            <Input
-              accept="image/*"
-              id="contained-button-file"
-              type="file"
-              onChange={async (event) => {
-                const file = Object.values(event.target.files)[0];
-                const imageDataUrl = await readFile(file);
-                user.update({ userImg: imageDataUrl });
-              }}
-            />
-          </label>
+          <IconButton
+            onClick={() => {
+              userImgInput.current.click();
+            }}
+          >
+            {userImg && <Avatar src={userImg} sx={{ width: 128, height: 128 }} />}
+            {!userImg && <Avatar src="/broken-image.jpg" sx={{ width: 128, height: 128 }} />}
+          </IconButton>
+
+          <input
+            ref={userImgInput}
+            accept="image/png, image/gif, image/jpeg"
+            id="contained-button-file"
+            type="file"
+            onChange={async (event) => {
+              const file = Object.values(event.target.files)[0];
+              const imageDataUrl = await readFile(file);
+              user.update({ userImg: imageDataUrl });
+            }}
+          />
           <div id="name">
             <TextField
               value={name}
