@@ -13,7 +13,6 @@ input[type='text'] {
   box-sizing: content-box;
 }
 * {
-  font-family: 'Roboto';
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -32,6 +31,7 @@ input[type='text'] {
   }
 }
 body {
+  font-family: 'Roboto';
   background: rgb(252, 252, 252);
 }
 
