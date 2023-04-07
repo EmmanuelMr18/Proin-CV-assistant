@@ -47,7 +47,6 @@ export function Preview() {
       <div id="preview-container">
         <Suspense fallback="">{component}</Suspense>
       </div>
-      ;
     </>
   );
 }
