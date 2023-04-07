@@ -32,7 +32,7 @@ export default function HarvardDesign() {
         </header>
         <main>
           <section>
-            <h2>E</h2>
+            <h2>Experiencia</h2>
             <hr />
             {experience.map((item) => {
               return (
@@ -53,7 +53,7 @@ export default function HarvardDesign() {
             })}
           </section>
           <section>
-            <h2>Skills</h2>
+            <h2>Habilidades</h2>
             <hr />
             <ul className="skills-items">
               {skills.map((item) => {
@@ -62,7 +62,7 @@ export default function HarvardDesign() {
             </ul>
           </section>
           <section>
-            <h2>Education</h2>
+            <h2>Educación</h2>
             <hr />
             {education.map((item) => {
               return (
@@ -82,7 +82,7 @@ export default function HarvardDesign() {
             })}
           </section>
           <section>
-            <h2>Achievements</h2>
+            <h2>Logros</h2>
             <hr />
             <ul className="achievements-items">
               {achievements.map((item) => {
