@@ -4,7 +4,7 @@ export function Navbar() {
   return (
     <div id="navbar">
       <Link to="/">
-        <img src="/assets/proin.png" alt="proin logo" />
+        <img src="/assets/proin2.png" alt="proin logo" />
       </Link>
     </div>
   );
