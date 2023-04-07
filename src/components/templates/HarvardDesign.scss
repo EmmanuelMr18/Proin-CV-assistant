@@ -42,16 +42,20 @@ $text: 12pt;
           gap: 2rem;
           justify-content: space-between;
           .date {
-            flex: 0 0 200px;
+            flex: 0 0 auto;
           }
         }
       }
       .skills-items {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        list-style-position: inside;
         li {
           font-size: $text;
         }
+      }
+      .achievements-items {
+        list-style-position: inside;
       }
     }
   }
