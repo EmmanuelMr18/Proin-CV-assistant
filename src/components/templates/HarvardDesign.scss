@@ -1,9 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
 
+$h2: 12pt;
+$text: 12pt;
 .harvardDesign {
-  font-family: 'Noto Serif', serif;
-  h1 {
-    font-size: 1rem;
-    text-align: center;
+  font-family: 'Tinos', serif;
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1,
+    .job-title {
+      font-size: $text;
+    }
+    .description {
+      margin-top: 1rem;
+      font-size: $text;
+      text-align: justify;
+      max-width: 85%;
+    }
+  }
+  main {
+    section {
+      margin-top: 1.5rem;
+      hr {
+        margin: 1rem 0 1rem 0;
+      }
+      h2 {
+        font-size: $h2;
+        text-align: center;
+      }
+      article {
+        display: grid;
+        gap: 0.25rem;
+        margin-bottom: 1rem;
+        h3 {
+          font-size: $h2;
+        }
+        .subTitle-row {
+          display: flex;
+          gap: 2rem;
+          justify-content: space-between;
+          .date {
+            flex: 0 0 200px;
+          }
+        }
+      }
+      .skills-items {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        li {
+          font-size: $text;
+        }
+      }
+    }
   }
 }

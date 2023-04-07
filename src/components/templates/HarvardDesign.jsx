@@ -11,19 +11,7 @@ const dateFormat = {
 };
 export default function HarvardDesign() {
   const user = useContext(UserContext);
-
-  const {
-    name,
-    job,
-    description,
-    userImg,
-    experience,
-    contacts,
-    skills,
-    languages,
-    education,
-    achievements
-  } = user.data;
+  const { name, job, experience, contacts, skills, education, achievements } = user.data;
 
   return (
     <>
@@ -31,7 +19,7 @@ export default function HarvardDesign() {
       <div id="preview-content" className="harvardDesign">
         <header>
           <h1>{name}</h1>
-          <p>{job}</p>
+          <p className="job-title">{job}</p>
           <p>
             {contacts.map((item, index) => {
               if (index === contacts.length - 1) {
@@ -40,22 +28,24 @@ export default function HarvardDesign() {
               return `${item} | `;
             })}
           </p>
-          <p>{description}</p>
+          {/* <p className="description">{description}</p> */}
         </header>
         <main>
           <section>
-            <h2>Experience</h2>
+            <h2>E</h2>
             <hr />
             {experience.map((item) => {
               return (
                 <article key={item.company + item.job}>
                   <h3>{item.company}</h3>
-                  <p>{item.job}</p>
-                  <p>{`${humanDate(item.start, dateFormat)} - ${humanDate(
-                    item.end,
-                    dateFormat
-                  )}`}</p>
-                  <p>
+                  <div className="subTitle-row">
+                    <p className="job-rol">{item.job}</p>
+                    <p className="date">{`${humanDate(item.start, dateFormat)} - ${humanDate(
+                      item.end,
+                      dateFormat
+                    )}`}</p>
+                  </div>
+                  <p className="description">
                     <MultilineText text={item.description} />
                   </p>
                 </article>
@@ -65,7 +55,7 @@ export default function HarvardDesign() {
           <section>
             <h2>Skills</h2>
             <hr />
-            <ul>
+            <ul className="skills-items">
               {skills.map((item) => {
                 return <li key={item}>{item}</li>;
               })}
@@ -78,8 +68,10 @@ export default function HarvardDesign() {
               return (
                 <article key={item.institution + item.title}>
                   <h3>{item.institution}</h3>
-                  <p>{item.title}</p>
-                  <p>{` ${humanDate(item.end, dateFormat)}`}</p>
+                  <div className="subTitle-row">
+                    <p>{item.title}</p>
+                    <p>{` ${humanDate(item.end, dateFormat)}`}</p>
+                  </div>
                   {item.description && (
                     <p>
                       <MultilineText text={item.description} />
@@ -92,6 +84,11 @@ export default function HarvardDesign() {
           <section>
             <h2>Achievements</h2>
             <hr />
+            <ul className="achievements-items">
+              {achievements.map((item) => {
+                return <li key={item}>{item}</li>;
+              })}
+            </ul>
           </section>
         </main>
       </div>
