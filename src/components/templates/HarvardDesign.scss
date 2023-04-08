@@ -23,17 +23,15 @@ $text: 12pt;
   main {
     section {
       margin-top: 1.5rem;
-      hr {
-        margin: 1rem 0 1rem 0;
-      }
       h2 {
         font-size: $h2;
         text-align: center;
+        margin-bottom: 1.1rem;
       }
       article {
         display: grid;
         gap: 0.25rem;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
         h3 {
           font-size: $h2;
         }
@@ -49,12 +47,14 @@ $text: 12pt;
       .skills-items {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        margin-top: 1rem;
         list-style-position: inside;
         li {
           font-size: $text;
         }
       }
       .achievements-items {
+        margin-top: 1rem;
         list-style-position: inside;
       }
     }
