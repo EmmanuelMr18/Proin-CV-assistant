@@ -24,5 +24,13 @@ export const spanish = {
   'End Date': 'Fecha de finalización',
   'Add another': 'Agregar otro',
   Company: 'Compañía',
-  'Job Title': 'Puesto de trabajo'
+  'Job Title': 'Puesto de trabajo',
+  Edit: 'Editar',
+  Delete: 'Eliminar',
+  'Edit My data': 'Editar mis datos',
+  'Available designs': 'Diseños disponibles',
+  'More actions': 'Más acciones',
+  'Upload data': 'Importar datos',
+  'Download data': 'Descargar datos',
+  'Delete data': 'Eliminar datos'
 };

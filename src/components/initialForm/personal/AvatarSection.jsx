@@ -4,8 +4,10 @@ import { UserContext } from '../../../main';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { readFile } from '../../../utils/utils';
+import { useTranslation } from 'react-i18next';
 
 export function AvatarSection() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const userImgInput = useRef(null);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -44,13 +46,13 @@ export function AvatarSection() {
           <ListItemIcon>
             <EditOutlinedIcon />
           </ListItemIcon>
-          <ListItemText onClick={openFileInput}>Editar</ListItemText>
+          <ListItemText onClick={openFileInput}>{t`Edit`}</ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <DeleteOutlineIcon />
           </ListItemIcon>
-          <ListItemText onClick={deleteUserImg}>Eliminar</ListItemText>
+          <ListItemText onClick={deleteUserImg}>{t`Delete`}</ListItemText>
         </MenuItem>
       </Menu>
 

@@ -7,8 +7,10 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import { UserContext } from '../../main';
 import { useNavigate } from 'react-router-dom';
 import { exportObj, importData } from '../../utils/utils';
+import { useTranslation } from 'react-i18next';
 
 export function ActionsMenu() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const [actionsEl, setActionsEl] = useState(null);
@@ -39,7 +41,7 @@ export function ActionsMenu() {
         onClick={handleActionsBtn}
         variant="contained"
       >
-        Más acciones
+        {t(`More actions`)}
       </Button>
       <Menu id="basic-menu" anchorEl={actionsEl} open={Boolean(actionsEl)} onClose={handleOnClose}>
         <label htmlFor="import-data">
@@ -47,20 +49,20 @@ export function ActionsMenu() {
             <ListItemIcon>
               <FileUploadOutlinedIcon />
             </ListItemIcon>
-            <ListItemText>Cargar datos</ListItemText>
+            <ListItemText>{t`Upload data`}</ListItemText>
           </MenuItem>
         </label>
         <MenuItem divider onClick={exportData}>
           <ListItemIcon>
             <FileDownloadOutlinedIcon />
           </ListItemIcon>
-          <ListItemText>Descargar datos</ListItemText>
+          <ListItemText>{t`Download data`}</ListItemText>
         </MenuItem>
         <MenuItem onClick={deleteData}>
           <ListItemIcon>
             <DeleteOutlineOutlinedIcon />
           </ListItemIcon>
-          <ListItemText>Borrar datos</ListItemText>
+          <ListItemText>{t`Delete Data`}</ListItemText>
         </MenuItem>
       </Menu>
       <input

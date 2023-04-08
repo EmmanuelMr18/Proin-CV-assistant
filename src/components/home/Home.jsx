@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { templateList } from '../../data/templates';
 import { UserContext } from '../../main';
 import { ActionsMenu } from './ActionsMenu';
+import { useTranslation } from 'react-i18next';
 
 export function Home() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const { userImg, name, description } = user.data;
   const navigate = useNavigate();
@@ -25,13 +27,13 @@ export function Home() {
         </div>
         <div className="home__header__actions">
           <Button variant="contained" color="primary" onClick={() => navigate(`/fill-data`)}>
-            Editar mis datos
+            {t`Edit My data`}
           </Button>
           <ActionsMenu />
         </div>
       </div>
       <div className="home__designs">
-        <Typography variant="h6">Diseños disponibles</Typography>
+        <Typography variant="h6">{t`Available designs`}</Typography>
         <section className="designs">
           {templateList.map((templateName) => {
             return (
