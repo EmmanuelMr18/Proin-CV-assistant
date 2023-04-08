@@ -1,8 +1,10 @@
 // import { ClassNames } from '@emotion/react';
 import { LinearProgress } from '@mui/material';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function FormSteps({ step }) {
+  const { t } = useTranslation();
   const progress = useMemo(() => {
     switch (step) {
       case 1:
@@ -16,9 +18,9 @@ export function FormSteps({ step }) {
   return (
     <div className="flex justify-center flex-column mw6 center" id="form-steps">
       <div className="w-100 flex justify-between mb2">
-        <span>Personal</span>
-        <span>Educación</span>
-        <span>Experiencia</span>
+        <span>{t(`Personal`)}</span>
+        <span>{t(`Education`)}</span>
+        <span>{t(`Experience`)}</span>
       </div>
       <div className="w-100">
         <LinearProgress

@@ -2,8 +2,10 @@ import { Chip, InputLabel, Stack, TextField } from '@mui/material';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { AlertToast } from '../../shared/AlertToast';
+import { useTranslation } from 'react-i18next';
 
 export function Skills() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const { skills } = user.data;
   const [alert, setAlert] = useState();
@@ -11,7 +13,7 @@ export function Skills() {
   return (
     <>
       <InputLabel className="w-100" shrink>
-        ¿Cuáles son tus habilidades?
+        {t(`What are your skills?`)}
       </InputLabel>
       <div className="flex flex-wrap w-100">
         <TextField

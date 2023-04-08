@@ -4,8 +4,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { emptyuserData } from '../../../models/user';
+import { useTranslation } from 'react-i18next';
 
 export function Education({ setStep }) {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const { education } = user.data;
   const [alert, setAlert] = useState(false);
@@ -41,12 +43,12 @@ export function Education({ setStep }) {
       </Snackbar>
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4 education" id="education">
-          <h2>Educación</h2>
+          <h2>{t(`Education`)}</h2>
           <div className="education__item">
             <div className="half-width">
               <TextField
                 value={education[0]?.institution}
-                label="Nombre de la institución:"
+                label={t(`Institution Name`)}
                 variant="outlined"
                 placeholder="UPP, CISCO, ..."
                 margin="normal"
@@ -60,9 +62,9 @@ export function Education({ setStep }) {
             <div className="half-width">
               <TextField
                 value={education[0]?.title}
-                label="Nombre de la carrera o certificado"
+                label={t(`Name of degree or certificate`)}
                 variant="outlined"
-                placeholder="Ing. Software, Cloud computing, ..."
+                placeholder="Cloud computing"
                 margin="normal"
                 fullWidth
                 required
@@ -75,7 +77,7 @@ export function Education({ setStep }) {
               <TextField
                 value={education[0]?.start}
                 type="date"
-                label="Fecha de inicio"
+                label={t(`Start Date`)}
                 InputLabelProps={{ shrink: true }}
                 variant="outlined"
                 margin="normal"
@@ -90,7 +92,7 @@ export function Education({ setStep }) {
               <TextField
                 value={education[0]?.end}
                 type="date"
-                label="Fecha de finalización"
+                label={t(`End Date`)}
                 InputLabelProps={{ shrink: true }}
                 variant="outlined"
                 margin="normal"
@@ -117,7 +119,7 @@ export function Education({ setStep }) {
                   <div className="half-width">
                     <TextField
                       value={education[index]?.institution}
-                      label="Nombre de la institución:"
+                      label={t(`Institution Name`)}
                       variant="outlined"
                       placeholder="UPP, CISCO, ..."
                       margin="normal"
@@ -131,9 +133,9 @@ export function Education({ setStep }) {
                   <div className="half-width">
                     <TextField
                       value={education[index]?.title}
-                      label="Nombre de la carrera o certificado"
+                      label={t(`Name of degree or certificate`)}
                       variant="outlined"
-                      placeholder="Ing. Software, Cloud computing, ..."
+                      placeholder="Cloud computing"
                       margin="normal"
                       fullWidth
                       required
@@ -146,7 +148,7 @@ export function Education({ setStep }) {
                     <TextField
                       value={education[index]?.start}
                       type="date"
-                      label="Fecha de inicio"
+                      label={t(`Start Date`)}
                       InputLabelProps={{ shrink: true }}
                       variant="outlined"
                       margin="normal"
@@ -161,7 +163,7 @@ export function Education({ setStep }) {
                     <TextField
                       value={education[index]?.end}
                       type="date"
-                      label="Fecha de finalización"
+                      label={t(`End Date`)}
                       InputLabelProps={{ shrink: true }}
                       variant="outlined"
                       margin="normal"
@@ -183,15 +185,15 @@ export function Education({ setStep }) {
             color="secondary"
             onClick={addEducation}
           >
-            Agregar otra
+            {t(`Add another`)}
           </Button>
         </div>
         <div className="flex justify-end mt3">
           <Button variant="outlined" onClick={() => setStep(0)} color="primary">
-            Anterior
+            {t(`Back`)}
           </Button>
           <Button type="submit" sx={{ marginLeft: '1rem' }} variant="contained" color="primary">
-            Siguiente
+            {t(`Next`)}
           </Button>
         </div>
       </form>

@@ -2,8 +2,10 @@ import { Chip, InputLabel, Stack, TextField } from '@mui/material';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { AlertToast } from '../../shared/AlertToast';
+import { useTranslation } from 'react-i18next';
 
 export function Languages() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const [alert, setAlert] = useState();
   const { languages } = user.data;
@@ -11,7 +13,7 @@ export function Languages() {
   return (
     <>
       <InputLabel className="w-100" shrink>
-        ¿Qué idiomas hablas?
+        {t(`What languages do you speak?`)}
       </InputLabel>
       <div className="flex flex-wrap w-100">
         <TextField
@@ -28,7 +30,7 @@ export function Languages() {
             if (e.key === 'Enter') {
               event.preventDefault();
               if (languages.includes(languagesInput)) {
-                setAlert('Ya agregaste este idioma');
+                setAlert(t(`Ya agregaste este idioma`));
                 return;
               }
               user.update({ languages: languages.concat(languagesInput) });

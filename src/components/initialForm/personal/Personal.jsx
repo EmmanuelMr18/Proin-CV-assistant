@@ -5,9 +5,11 @@ import { UserContext } from '../../../main';
 import { Languages } from './Languages';
 import { Skills } from './Skills';
 import { AvatarSection } from './AvatarSection';
+import { useTranslation } from 'react-i18next';
 
 export function Personal({ setStep }) {
   const user = useContext(UserContext);
+  const { t } = useTranslation();
   const { name, job, description, achievements, contacts } = user.data;
   const [alert, setAlert] = useState(false);
 
@@ -29,14 +31,14 @@ export function Personal({ setStep }) {
       </Snackbar>
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4" id="personal">
-          <h2 className="">Información general</h2>
+          <h2 className="">{t(`General Information`)}</h2>
           <div id="photo">
             <AvatarSection />
           </div>
           <div id="name">
             <TextField
               value={name}
-              label="¿Cuál es tu nombre?"
+              label={t(`What is your name?`)}
               variant="outlined"
               placeholder="Johndoe"
               required
@@ -47,7 +49,7 @@ export function Personal({ setStep }) {
           <div id="job">
             <TextField
               value={job}
-              label="¿A qué puesto quieres aplicar?"
+              label={t(`What job position are you applying for?`)}
               variant="outlined"
               placeholder="Software enginner"
               margin="normal"
@@ -65,7 +67,7 @@ export function Personal({ setStep }) {
           <div className="full-width">
             <TextField
               value={description}
-              label="Descripción:"
+              label={t(`Description`)}
               variant="outlined"
               placeholder="Software enginner"
               margin="normal"
@@ -78,7 +80,7 @@ export function Personal({ setStep }) {
           <div className="half-width">
             <TextField
               value={achievements[0]}
-              label="Logros:"
+              label={t(`Achievements`)}
               variant="outlined"
               placeholder="Ganador del concurso..."
               margin="normal"
@@ -97,7 +99,6 @@ export function Personal({ setStep }) {
             return (
               <div className="half-width" key={`archievemnt-${index}`}>
                 <TextField
-                  // label="Logros:"
                   value={achievement}
                   variant="outlined"
                   placeholder="..."
@@ -135,18 +136,18 @@ export function Personal({ setStep }) {
               }}
               color="secondary"
             >
-              Agregar logro
+              {t(`Add achievement`)}
             </Button>
           </div>
         </div>
         <div id="contact">
-          <h2>Contacto</h2>
+          <h2>{t(`Contact`)}</h2>
           <div className="half-width">
             <TextField
               value={contacts[0]}
-              label="Correo electrónico:"
+              label={t(`Email Address`)}
               variant="outlined"
-              placeholder="emman.mr@gmail.com"
+              placeholder="johnDoe@gmail.com"
               margin="normal"
               fullWidth
               onChange={(event) => {
@@ -216,13 +217,13 @@ export function Personal({ setStep }) {
               }}
               color="secondary"
             >
-              Agregar contacto
+              {t(`Add contact`)}
             </Button>
           </div>
         </div>
         <div className="flex justify-end">
           <Button sx={{ marginLeft: '1rem' }} variant="contained" type="submit" color="primary">
-            Siguiente
+            {t(`Next`)}
           </Button>
         </div>
       </form>

@@ -5,8 +5,10 @@ import { Fragment, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../main';
 import { emptyuserData } from '../../models/user';
+import { useTranslation } from 'react-i18next';
 
 export function Experience({ setStep }) {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { experience } = user.data;
@@ -44,12 +46,12 @@ export function Experience({ setStep }) {
       </Snackbar>
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4 experience" id="experience">
-          <h2>Experiencia laboral</h2>
+          <h2> {t(`Experience`)}</h2>
           <div className="experience__item">
             <div className="half-width">
               <TextField
                 value={experience[0]?.company}
-                label="Compañia:"
+                label={t(`Company`)}
                 variant="outlined"
                 placeholder="Microsoft, Rappi, ..."
                 margin="normal"
@@ -63,7 +65,7 @@ export function Experience({ setStep }) {
             <div className="half-width">
               <TextField
                 value={experience[0]?.job}
-                label="Puesto de trabajo"
+                label={t(`Job title`)}
                 variant="outlined"
                 placeholder="Data scientist, Software architect, ..."
                 margin="normal"
@@ -78,7 +80,7 @@ export function Experience({ setStep }) {
               <TextField
                 value={experience[0]?.start}
                 type="date"
-                label="Fecha de inicio"
+                label={t(`Start date`)}
                 InputLabelProps={{ shrink: true }}
                 variant="outlined"
                 margin="normal"
@@ -93,7 +95,7 @@ export function Experience({ setStep }) {
               <TextField
                 value={experience[0]?.end}
                 type="date"
-                label="Fecha de finalización"
+                label={t(`End date`)}
                 InputLabelProps={{ shrink: true }}
                 variant="outlined"
                 margin="normal"
@@ -107,7 +109,7 @@ export function Experience({ setStep }) {
             <div className="full-width">
               <TextField
                 value={experience[0]?.description}
-                label="Descripción:"
+                label={t(`Description`)}
                 variant="outlined"
                 placeholder="Software enginner"
                 margin="normal"
@@ -140,7 +142,7 @@ export function Experience({ setStep }) {
                   <div className="half-width">
                     <TextField
                       value={experience[index]?.company}
-                      label="Compañia:"
+                      label={t(`Company`)}
                       variant="outlined"
                       placeholder="Microsoft, Rappi, ..."
                       margin="normal"
@@ -154,7 +156,7 @@ export function Experience({ setStep }) {
                   <div className="half-width">
                     <TextField
                       value={experience[index]?.job}
-                      label="Puesto de trabajo"
+                      label={t(`Job title`)}
                       variant="outlined"
                       placeholder="Data scientist, Software architect, ..."
                       margin="normal"
@@ -169,7 +171,7 @@ export function Experience({ setStep }) {
                     <TextField
                       value={experience[index]?.start}
                       type="date"
-                      label="Fecha de inicio"
+                      label={t(`Start date`)}
                       InputLabelProps={{ shrink: true }}
                       variant="outlined"
                       margin="normal"
@@ -184,7 +186,7 @@ export function Experience({ setStep }) {
                     <TextField
                       value={experience[index]?.end}
                       type="date"
-                      label="Fecha de finalización"
+                      label={t(`End date`)}
                       InputLabelProps={{ shrink: true }}
                       variant="outlined"
                       margin="normal"
@@ -198,7 +200,7 @@ export function Experience({ setStep }) {
                   <div className="full-width">
                     <TextField
                       value={experience[index]?.description}
-                      label="Descripción:"
+                      label={t(`Description`)}
                       variant="outlined"
                       placeholder="Software enginner"
                       margin="normal"
@@ -221,15 +223,15 @@ export function Experience({ setStep }) {
             color="secondary"
             onClick={addExperience}
           >
-            Agregar otra
+            {t(`Add another`)}
           </Button>
         </div>
         <div className="flex justify-end mt3">
           <Button variant="outlined" onClick={() => setStep(1)} color="primary">
-            Anterior
+            {t(`Back`)}
           </Button>
           <Button type="submit" sx={{ marginLeft: '1rem' }} variant="contained" color="primary">
-            Finalizar
+            {t(`Finish`)}
           </Button>
         </div>
       </form>

@@ -27,12 +27,15 @@ input[type='text'] {
   width: 100%;
   #navbar {
     @include contentContainer();
-    @include flexRow(space-between, center);
+    @include flexRow(center, center);
     padding: 1rem;
+    position: relative;
     & img {
       width: 7rem;
     }
     .language {
+      position: absolute;
+      right: 1rem;
       align-self: flex-end;
       justify-self: end;
     }

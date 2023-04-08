@@ -14,11 +14,14 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.31.10
   firebase: ^9.13.0
+  i18next: ^22.4.14
+  i18next-browser-languagedetector: ^7.0.1
   moment: ^2.29.1
   prettier: ^2.7.1
   react: ^18.0.0
   react-dom: ^18.0.0
   react-firebase-hooks: ^5.0.3
+  react-i18next: ^12.2.0
   react-router-dom: ^6.2.1
   rollup: ^3.15.0
   sass: ^1.49.9
@@ -32,10 +35,13 @@ dependencies:
   '@mui/material': 5.11.8_cfjj6er6uue7dntuncdfvspmye
   classnames: 2.3.1
   firebase: 9.13.0
+  i18next: 22.4.14
+  i18next-browser-languagedetector: 7.0.1
   moment: 2.29.1
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
   react-firebase-hooks: 5.0.3_zq5jbyhh4xivsu2exrbdwkhcky
+  react-i18next: 12.2.0_kgugio5hzc6vgf3hu3aq3vnuny
   react-router-dom: 6.2.1_zpnidt7m3osuk7shl3s4oenomq
   tachyons-sass: 4.9.5
 
@@ -2476,8 +2482,26 @@ packages:
       react-is: 16.13.1
     dev: false
 
+  /html-parse-stringify/3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
   /http-parser-js/0.5.8:
     resolution: {integrity: sha512-SGeBX54F94Wgu5RH3X5jsDtf4eHyRogWX1XGT3b4HuW3tQPM4AaBzoUji/4AAJNXCEOWZ5O0DgZmJw1947gD5Q==}
+    dev: false
+
+  /i18next-browser-languagedetector/7.0.1:
+    resolution: {integrity: sha512-Pa5kFwaczXJAeHE56CHG2aWzFBMJNUNghf0Pm4SwSrEMps/PTKqW90EYWlIvhuYStf3Sn1K0vw+gH3+TLdkH1g==}
+    dependencies:
+      '@babel/runtime': 7.20.13
+    dev: false
+
+  /i18next/22.4.14:
+    resolution: {integrity: sha512-VtLPtbdwGn0+DAeE00YkiKKXadkwg+rBUV+0v8v0ikEjwdiJ0gmYChVE4GIa9HXymY6wKapkL93vGT7xpq6aTw==}
+    dependencies:
+      '@babel/runtime': 7.20.13
     dev: false
 
   /idb/7.0.1:
@@ -3060,6 +3084,26 @@ packages:
       react: 18.0.0
     dev: false
 
+  /react-i18next/12.2.0_kgugio5hzc6vgf3hu3aq3vnuny:
+    resolution: {integrity: sha512-5XeVgSygaGfyFmDd2WcXvINRw2WEC1XviW1LXY/xLOEMzsCFRwKqfnHN+hUjla8ZipbVJR27GCMSuTr0BhBBBQ==}
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.13
+      html-parse-stringify: 3.0.1
+      i18next: 22.4.14
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -3469,6 +3513,11 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /void-elements/3.1.0:
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

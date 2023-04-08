@@ -4,8 +4,8 @@ import { createRoot } from 'react-dom/client';
 import './styles/index.scss';
 import AppRouter from './components/AppRouter';
 import { theme } from './styles/theme';
-
-export const UserContext = React.createContext({});
+import './i18n/i18n';
+export const UserContext = React.createContext({ data: {} });
 
 let container = null;
 document.addEventListener('DOMContentLoaded', function () {
