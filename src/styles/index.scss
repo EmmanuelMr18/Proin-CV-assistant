@@ -8,6 +8,7 @@
 @import 'preview';
 
 $primary: #aec3b0;
+$bg: rgb(252, 252, 252);
 
 input[type='text'] {
   box-sizing: content-box;
@@ -18,20 +19,33 @@ input[type='text'] {
   box-sizing: border-box;
 }
 
-#root {
-  height: 100%;
+#app {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
   width: 100%;
-}
-#navbar {
-  @include flexRow(center, center);
-  margin-top: 1rem;
-  & img {
-    width: 7rem;
+  #navbar {
+    @include contentContainer();
+    @include flexRow(space-between, center);
+    padding: 1rem;
+    & img {
+      width: 7rem;
+    }
+    .language {
+      align-self: flex-end;
+      justify-self: end;
+    }
+  }
+  #content {
+    flex: 1 1 100%;
+    overflow-y: auto;
+    overflow-y: overlay;
   }
 }
 body {
   font-family: 'Roboto';
-  background: rgb(252, 252, 252);
+  background: $bg;
 }
 
 .persona-first-row {

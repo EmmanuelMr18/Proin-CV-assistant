@@ -10,3 +10,9 @@
   flex-direction: column;
   justify-content: $justify;
 }
+
+@mixin contentContainer() {
+  margin: auto;
+  width: min(100%, 90rem);
+  padding: 0 1rem;
+}

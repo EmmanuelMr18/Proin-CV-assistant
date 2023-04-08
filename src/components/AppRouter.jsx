@@ -18,15 +18,19 @@ export default function AppRouter() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={userData}>
-          <Navbar />
-          <Routes>
-            <Route element={<NotFound />} path="*" />
-            <Route element={<Home />} path="/" />
-            <Route element={<Login />} path="/login" />
-            <Route element={<InitialForm />} path="/fill-data" />
-            <Route element={<GettingStarted />} path="getting-started" />
-            <Route element={<Preview />} path="preview/*" />
-          </Routes>
+          <div id="app">
+            <Navbar />
+            <div id="content">
+              <Routes>
+                <Route element={<NotFound />} path="*" />
+                <Route element={<Home />} path="/" />
+                <Route element={<Login />} path="/login" />
+                <Route element={<InitialForm />} path="/fill-data" />
+                <Route element={<GettingStarted />} path="getting-started" />
+                <Route element={<Preview />} path="preview/*" />
+              </Routes>
+            </div>
+          </div>
         </UserContext.Provider>
       </BrowserRouter>
     </>

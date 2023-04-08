@@ -8,6 +8,9 @@
   color: $black;
 }
 @media print {
+  #app #content {
+    overflow: visible !important;
+  }
   body {
     background: white !important;
   }
