@@ -39,7 +39,7 @@ export function Home() {
                 <Link className="designs__item dim" to={`/preview?design=${templateName}`}>
                   <img
                     className="designs__item__img"
-                    src={`/assets/templates/${templateName}.png`}
+                    src={`/assets/templates/${templateName}.webp`}
                     alt={templateName}
                   />
                 </Link>
