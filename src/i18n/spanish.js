@@ -34,5 +34,6 @@ export const spanish = {
   'Download data': 'Descargar datos',
   'Delete data': 'Eliminar datos',
   // Templates
+  'Download/Print': 'Descargar/Imprimir',
   Skills: 'Habilidades'
 };

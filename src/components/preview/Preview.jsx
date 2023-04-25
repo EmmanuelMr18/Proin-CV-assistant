@@ -3,11 +3,13 @@ import moment from 'moment';
 import { lazy, useEffect } from 'react';
 import { useState } from 'react';
 import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 const importTemplate = (templateName) =>
   lazy(() => import(`../templates/${templateName}.jsx`).catch(() => import(`../shared/NotFound`)));
 export function Preview() {
+  const { t } = useTranslation();
   const [component, setComponent] = useState([]);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -41,7 +43,7 @@ export function Preview() {
           }}
           variant="contained"
         >
-          Descargar/Imprimir
+          {t`Download/Print`}
         </Button>
       </div>
       <div id="preview-container">
