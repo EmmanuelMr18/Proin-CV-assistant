@@ -32,5 +32,7 @@ export const spanish = {
   'More actions': 'Más acciones',
   'Upload data': 'Importar datos',
   'Download data': 'Descargar datos',
-  'Delete data': 'Eliminar datos'
+  'Delete data': 'Eliminar datos',
+  // Templates
+  Skills: 'Habilidades'
 };

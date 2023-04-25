@@ -3,6 +3,7 @@ import { UserContext } from '../../main';
 import styles from './HarvardDesign.scss?inline';
 import { humanDate } from '../../utils/dates';
 import { MultilineText } from '../shared/MultilineText';
+import { useTranslation } from 'react-i18next';
 
 const dateFormat = {
   year: 'numeric',
@@ -10,6 +11,7 @@ const dateFormat = {
   day: undefined
 };
 export default function HarvardDesign() {
+  const { t } = useTranslation();
   const user = useContext(UserContext);
   const { name, job, experience, contacts, skills, education, achievements } = user.data;
 
@@ -32,7 +34,7 @@ export default function HarvardDesign() {
         </header>
         <main>
           <section>
-            <h2>Experiencia</h2>
+            <h2>{t`Experience`}</h2>
             <hr />
             {experience.map((item) => {
               return (
@@ -53,7 +55,7 @@ export default function HarvardDesign() {
             })}
           </section>
           <section>
-            <h2>Habilidades</h2>
+            <h2>{t`Skills`}</h2>
             <hr />
             <ul className="skills-items">
               {skills.map((item) => {
@@ -62,7 +64,7 @@ export default function HarvardDesign() {
             </ul>
           </section>
           <section>
-            <h2>Educación</h2>
+            <h2>{t`Education`}</h2>
             <hr />
             {education.map((item) => {
               return (
@@ -82,7 +84,7 @@ export default function HarvardDesign() {
             })}
           </section>
           <section>
-            <h2>Logros</h2>
+            <h2>{t`Achievements`}</h2>
             <hr />
             <ul className="achievements-items">
               {achievements.map((item) => {
