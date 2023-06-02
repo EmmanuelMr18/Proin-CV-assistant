@@ -1,10 +1,11 @@
-import { Alert, Button, Divider, Snackbar, TextField } from '@mui/material';
+import { Alert, Button, Snackbar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import ClearIcon from '@mui/icons-material/Clear';
 import { Fragment, useContext, useState } from 'react';
 import { UserContext } from '../../../main';
 import { emptyuserData } from '../../../models/user';
 import { useTranslation } from 'react-i18next';
+import { EducationItem } from './EducationItem';
+import { moveArrayItem } from '../../../utils/utils';
 
 export function Education({ setStep }) {
   const { t } = useTranslation();
@@ -29,6 +30,16 @@ export function Education({ setStep }) {
   function addEducation() {
     user.update({ education: education.concat(emptyuserData.education) });
   }
+  function moveEducationUp(from) {
+    const educationCopy = [...education];
+    const educationReordered = moveArrayItem(educationCopy, from, from - 1);
+    user.update({ education: educationReordered });
+  }
+  function moveEducationDown(from) {
+    const educationCopy = [...education];
+    const educationReordered = moveArrayItem(educationCopy, from, from + 1);
+    user.update({ education: educationReordered });
+  }
   return (
     <Fragment>
       <Snackbar
@@ -44,138 +55,21 @@ export function Education({ setStep }) {
       <form onSubmit={onSubmit} className="mb5">
         <div className="mt4 education" id="education">
           <h2>{t(`Education`)}</h2>
-          <div className="education__item">
-            <div className="half-width">
-              <TextField
-                value={education[0]?.institution}
-                label={t(`Institution Name`)}
-                variant="outlined"
-                placeholder="UPP, CISCO, ..."
-                margin="normal"
-                fullWidth
-                required
-                onChange={(event) => {
-                  updateEducation(0, { institution: event.target.value });
-                }}
-              />
-            </div>
-            <div className="half-width">
-              <TextField
-                value={education[0]?.title}
-                label={t(`Name of degree or certificate`)}
-                variant="outlined"
-                placeholder="Cloud computing"
-                margin="normal"
-                fullWidth
-                required
-                onChange={(event) => {
-                  updateEducation(0, { title: event.target.value });
-                }}
-              />
-            </div>
-            <div className="half-width">
-              <TextField
-                value={education[0]?.start}
-                type="date"
-                label={t(`Start Date`)}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                margin="normal"
-                fullWidth
-                required
-                onChange={(event) => {
-                  updateEducation(0, { start: event.target.value });
-                }}
-              />
-            </div>
-            <div className="half-width">
-              <TextField
-                value={education[0]?.end}
-                type="date"
-                label={t(`End Date`)}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                margin="normal"
-                fullWidth
-                required
-                onChange={(event) => {
-                  updateEducation(0, { end: event.target.value });
-                }}
-              />
-            </div>
-          </div>
-          {education.map((item, index) => {
-            if (index === 0) {
-              return;
-            }
+          {education.map((item, index, array) => {
             return (
-              <Fragment key={`fragment-${index}`}>
-                <Divider className="education__divider" textAlign="right" key={`divider${index}`}>
-                  <Button>
-                    <ClearIcon color="error" onClick={() => deleteEducation(index)} />
-                  </Button>
-                </Divider>
-                <div className="education__item" key={`education-item${index}`}>
-                  <div className="half-width">
-                    <TextField
-                      value={education[index]?.institution}
-                      label={t(`Institution Name`)}
-                      variant="outlined"
-                      placeholder="UPP, CISCO, ..."
-                      margin="normal"
-                      fullWidth
-                      required
-                      onChange={(event) => {
-                        updateEducation(index, { institution: event.target.value });
-                      }}
-                    />
-                  </div>
-                  <div className="half-width">
-                    <TextField
-                      value={education[index]?.title}
-                      label={t(`Name of degree or certificate`)}
-                      variant="outlined"
-                      placeholder="Cloud computing"
-                      margin="normal"
-                      fullWidth
-                      required
-                      onChange={(event) => {
-                        updateEducation(index, { title: event.target.value });
-                      }}
-                    />
-                  </div>
-                  <div className="half-width">
-                    <TextField
-                      value={education[index]?.start}
-                      type="date"
-                      label={t(`Start Date`)}
-                      InputLabelProps={{ shrink: true }}
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      required
-                      onChange={(event) => {
-                        updateEducation(index, { start: event.target.value });
-                      }}
-                    />
-                  </div>
-                  <div className="half-width">
-                    <TextField
-                      value={education[index]?.end}
-                      type="date"
-                      label={t(`End Date`)}
-                      InputLabelProps={{ shrink: true }}
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      required
-                      onChange={(event) => {
-                        updateEducation(index, { end: event.target.value });
-                      }}
-                    />
-                  </div>
-                </div>
-              </Fragment>
+              <div className="education__item" key={index}>
+                <EducationItem
+                  education={education[index]}
+                  onUpdateEducation={updateEducation}
+                  onDeleteAction={deleteEducation}
+                  moveEducationUp={moveEducationUp}
+                  moveEducationDown={moveEducationDown}
+                  displayDownBtn={index < array.length - 1}
+                  displayUpBtn={index > 0}
+                  displayDeleteBtn={index > 0}
+                  index={index}
+                />
+              </div>
             );
           })}
           <Button
