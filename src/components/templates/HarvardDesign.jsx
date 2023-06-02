@@ -37,15 +37,15 @@ export default function HarvardDesign() {
             <h2>{t`Experience`}</h2>
             <hr />
             {experience.map((item) => {
+              const endDate = !item.currentlyActive
+                ? `${humanDate(item.end, dateFormat)}`
+                : t`Present`;
               return (
                 <article key={item.company + item.job}>
                   <h3>{item.company}</h3>
                   <div className="subTitle-row">
                     <p className="job-rol">{item.job}</p>
-                    <p className="date">{`${humanDate(item.start, dateFormat)} - ${humanDate(
-                      item.end,
-                      dateFormat
-                    )}`}</p>
+                    <p className="date">{`${humanDate(item.start, dateFormat)} - ${endDate}`}</p>
                   </div>
                   <p className="description">
                     <MultilineText text={item.description} />
