@@ -33,6 +33,7 @@ export const spanish = {
   'Upload data': 'Importar datos',
   'Download data': 'Descargar datos',
   'Delete data': 'Eliminar datos',
+  'I currently have this position': 'Actualmente tengo esta posición',
   // Templates
   'Download/Print': 'Descargar/Imprimir',
   Skills: 'Habilidades'
