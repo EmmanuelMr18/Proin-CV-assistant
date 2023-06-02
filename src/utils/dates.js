@@ -1,5 +1,4 @@
 export function humanDate(date, options, lang) {
-  console.log('dsfsdf');
   if (!date) {
     return 'Invalid Date';
   }
