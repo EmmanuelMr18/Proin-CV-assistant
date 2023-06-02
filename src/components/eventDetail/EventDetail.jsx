@@ -1,14 +1,22 @@
-import { TextField } from '@mui/material';
+import { Checkbox, FormControlLabel, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import './eventDetail.scss';
+import { useState } from 'react';
 
-export function EventDetail({ data, updateData, labels }) {
+export function EventDetail({ data, updateData, labels, inputProperties }) {
   const { t } = useTranslation();
+  const { place, title } = inputProperties;
+  const [currentlyActive, setCurrentlyActive] = useState(false);
+
+  function onCurrentlyActive() {
+    setCurrentlyActive(!currentlyActive);
+    updateData({ currentlyActive: !currentlyActive, end: '' });
+  }
   return (
     <div className="event-detail">
       <div className="half-width">
         <TextField
-          value={data?.institution}
+          value={data?.[place]}
           label={t`${labels[0].label}`}
           variant="outlined"
           placeholder={t`${labels[0].placeholder}`}
@@ -16,13 +24,13 @@ export function EventDetail({ data, updateData, labels }) {
           fullWidth
           required
           onChange={(event) => {
-            updateData({ institution: event.target.value });
+            updateData({ [place]: event.target.value });
           }}
         />
       </div>
       <div className="half-width">
         <TextField
-          value={data?.title}
+          value={data?.[title]}
           label={t`${labels[1].label}`}
           variant="outlined"
           placeholder={t`${labels[1].placeholder}`}
@@ -30,8 +38,14 @@ export function EventDetail({ data, updateData, labels }) {
           fullWidth
           required
           onChange={(event) => {
-            updateData({ title: event.target.value });
+            updateData({ [title]: event.target.value });
           }}
+        />
+      </div>
+      <div className="full-width">
+        <FormControlLabel
+          control={<Checkbox checked={currentlyActive} onChange={onCurrentlyActive} />}
+          label={t`I currently have this position`}
         />
       </div>
       <div className="half-width">
@@ -52,6 +66,7 @@ export function EventDetail({ data, updateData, labels }) {
       <div className="half-width">
         <TextField
           value={data?.end}
+          disabled={currentlyActive}
           type="date"
           label={t`${labels[3].label}`}
           InputLabelProps={{ shrink: true }}

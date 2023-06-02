@@ -15,7 +15,7 @@ const labels = [
   },
   { label: 'Start Date' },
   { label: 'End Date' },
-  { label: 'Description', placeholder: 'Software enginner' }
+  { label: 'Description', placeholder: '...' }
 ];
 
 export function EducationItem({
@@ -57,6 +57,7 @@ export function EducationItem({
         data={education}
         updateData={(changes) => onUpdateEducation(index, changes)}
         labels={labels}
+        inputProperties={{ place: 'institution', title: 'title' }}
       />
     </>
   );
