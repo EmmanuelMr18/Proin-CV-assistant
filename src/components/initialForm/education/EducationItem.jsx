@@ -31,28 +31,20 @@ export function EducationItem({
 }) {
   return (
     <>
-      {/* {index > 0 && ( */}
       <Divider className="education__divider" textAlign="right">
-        {/* {displayUpBtn && ( */}
         <Button disabled={!displayUpBtn} onClick={() => moveEducationUp(index)}>
           <ArrowUpwardIcon />
         </Button>
-        {/* )} */}
-        {/* {displayDownBtn && ( */}
         <Button disabled={!displayDownBtn} onClick={() => moveEducationDown(index)}>
           <ArrowDownwardIcon />
         </Button>
-        {/* )} */}
-        {/* {displayDeleteBtn && ( */}
         <Button disabled={!displayDeleteBtn}>
           <ClearIcon
             color={!displayDeleteBtn ? '' : 'error'}
             onClick={() => onDeleteAction(index)}
           />
         </Button>
-        {/* )} */}
       </Divider>
-      {/* )} */}
       <EventDetail
         data={education}
         updateData={(changes) => onUpdateEducation(index, changes)}
