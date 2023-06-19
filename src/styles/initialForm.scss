@@ -43,9 +43,7 @@
 .experience {
   &__item {
     grid-column: span 10;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 1rem;
+
   }
   &__add,
   &__divider {
