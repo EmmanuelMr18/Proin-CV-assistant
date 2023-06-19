@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Education } from './education/Education';
-import { Experience } from './Experience';
+import { Experience } from './experience/Experience';
 import { FormSteps } from './FormSteps';
 import { Personal } from './personal/Personal';
 
