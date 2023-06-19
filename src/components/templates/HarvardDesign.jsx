@@ -83,15 +83,17 @@ export default function HarvardDesign() {
               );
             })}
           </section>
-          <section>
-            <h2>{t`Achievements`}</h2>
-            <hr />
-            <ul className="achievements-items">
-              {achievements.map((item) => {
-                return <li key={item}>{item}</li>;
-              })}
-            </ul>
-          </section>
+          {achievements && achievements.length > 0 && achievements[0] !== '' && (
+            <section>
+              <h2>{t`Achievements`}</h2>
+              <hr />
+              <ul className="achievements-items">
+                {achievements.map((item) => {
+                  return <li key={item}>{item}</li>;
+                })}
+              </ul>
+            </section>
+          )}
         </main>
       </div>
     </>
